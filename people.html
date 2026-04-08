@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>People | Human-Centered AI Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-main">
+      <a href="index.html" class="brand" style="text-decoration: none;">
+        <img src="photo/logo.png" alt="HCAI Logo" class="brand-logo">
+        <div>
+          <h1>Human-Centered AI Lab</h1>
+          <p>INNOVATIVE HUMAN-CENTERED AI FOR THE FUTURE</p>
+        </div>
+      </a>
+      <div class="top-links">
+        <a href="https://www.kangwon.ac.kr/" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">account_balance</span> KNU Home
+        </a>
+        <a href="https://eais.kangwon.ac.kr/EAIS/index.do" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">computer</span> 첨단AI공학과
+        </a>
+        <a href="https://kcloud.kangwon.ac.kr/login" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">cloud</span> K-Cloud
+        </a>
+        <a href="https://eruri.kangwon.ac.kr/login/index.php" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">school</span> 이루리
+        </a>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="index.html">About</a>
+        <a href="people.html" class="active">People</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="news.html">News</a>
+        <a href="lab-life.html">Lab Life</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" style="padding: 80px 20px;">
+    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 40px;">PEOPLE</h2>
+
+    <section style="margin-bottom: 60px;">
+      <h3 class="area-title">Professor</h3>
+      <div class="grid-2" style="grid-template-columns: 300px 1fr; align-items: start;">
+        <!-- 교수님 사진입니다. 아래 src= 영역에 사진 파일명(예: professor.jpg)을 적어주세요 -->
+        <img src="photo/Prof.jpg" alt="Changgyun Kim"
+          style="width: 100%; height: 350px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-color); background: #eee;">
+        <div>
+          <h4 style="font-size: 1.8rem; margin-bottom: 10px;">Changgyun Kim</h4>
+          <p style="color: var(--accent-blue); font-weight: 700; margin-bottom: 20px;">Assistant Professor, Industrial
+            Engineering</p>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">Professor Kim leads the Human-Centered AI Lab. With
+            a background in Industrial Engineering, his research focuses on human-centered applications such as
+            healthcare and optimization, using diverse data modalities including 2D and 3D data, speech, and text.</p>
+          <p><strong>Email:</strong> tiockdrbs@kangwon.ac.kr</p>
+          <p><strong>Department:</strong> Department of Advanced AI Engineering</p>
+          <p><strong>Office:</strong> 제5공학관 408호</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ph.D. Students -->
+    <section style="margin-bottom: 60px;">
+      <h3 class="area-title">Ph.D. Students (박사과정)</h3>
+      <div class="dark-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
+            onclick="openModal('modal_student_a')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <!-- 아래 src="student_a.jpg" 부분에 학생 사진 파일명(예: photo1.png)을 적어주세요 -->
+            <img src="photo/Sim.jpg" alt="심상욱" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">심상욱</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Ph.D. Candidate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Master's Students -->
+    <section style="margin-bottom: 60px;">
+      <h3 class="area-title" style="border-left-color: #34A853;">Master's Students (석사과정)</h3>
+      <div class="dark-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
+            onclick="openModal('modal_student_b')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <!-- 아래 src="student_b.jpg" 부분에 학생 사진 파일명을 적어주세요 -->
+            <img src="photo/Dan.jpg" alt="오단휘" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">오단휘</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Master's Student</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Undergraduate Students -->
+    <section style="margin-bottom: 60px;">
+      <h3 class="area-title" style="border-left-color: #FBBC05;">Undergraduate Students (학부생과정)</h3>
+
+      <!-- [새로운 학생 추가 방법] 
+           1. 아래의 <div class="photo-card">...</div> 블록을 복사하여 바로 아래에 붙여넣으세요.
+           2. img 태그의 src를 새로운 사진 파일명(예: photo/new_student.jpg)으로 수정하세요.
+           3. openModal('모달_고유_ID')의 ID를 새로운 ID(예: modal_student_d)로 수정하세요.
+           4. 하단의 <script> 태그 내 studentData 객체에도 동일한 ID(예: modal_student_d)와 상세 내용을 추가해야 합니다. -->
+
+      <div class="dark-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
+            onclick="openModal('modal_student_c')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <img src="photo/Yeop.jpg" alt="김상엽" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">김상엽</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
+        </div>
+
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
+            onclick="openModal('modal_student_d')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <img src="photo/LIM.jpg" alt="임형근" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">임형근</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div
+        style="display:grid; grid-template-columns: auto 1fr auto; gap:40px; align-items:start; padding: 48px 0 32px;">
+
+        <!-- 왼쪽: 로고 + 연구실 이미지 공간 -->
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:16px;">
+          <img src="photo/logo2.png" alt="HCAI Logo" style="height:70px; display:block;">
+          <!-- 연구실 이미지 공간: 아래 src= 부분에 이미지 파일명을 넣어주세요 (예: lab_photo.jpg) -->
+          <div style=>
+            <!-- <img src="photo/lab_photo.jpg" alt="연구실 사진" style="width:100%; height:100%; object-fit:cover;"> -->
+          </div>
+        </div>
+
+        <!-- 가운데: 연구소 연락처 -->
+        <div style="color:rgba(0, 0, 0, 1); font-size:0.82rem; line-height:1.9;">
+          <p style="margin:0 0 14px; font-weight:700; font-size:0.9rem; color:#000000; letter-spacing:0.5px;">
+            Human-Centered AI Lab</p>
+          <p style="margin:0 0 4px;">📍 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
+          <p style="margin:0 0 14px;">📞 Tel : 033-570-6587 &nbsp;|&nbsp; ✉️
+            tiockdrbs@kangwon.ac.kr</p>
+        </div>
+
+
+
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.1); padding:20px 0; text-align:center;">
+        <p style="margin:0; font-size:0.78rem; color:rgba(0, 0, 0, 0.45); letter-spacing:0.5px;">COPYRIGHT © 2026
+          KANGWON NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Overlay for People -->
+  <div id="modalOverlay" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle" class="modal-title">Student Name</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const studentData = {
+      'modal_student_a': {
+        title: '심상욱 (Ph.D. Candidate)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
+        <img src="photo/Sim.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>Human-AI Collaboration, Multimodal Interaction, Autonomous Vehicles.</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>An Integrated 60 GHz Radar and AI-Guided Infrared System for Non-Contact Heart Rate and Body Temperature Monitoring</li>
+            <li>Proposal of a Cost-Effective and Adaptive Customized Driver Inattention Detection Model Using Time Series Analysis and Computer Vision</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: swsim@kangwon.ac.kr</p>
+        </div>
+      </div>`
+      },
+      'modal_student_b': {
+        title: '오단휘 (Master\'s Student)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
+        <img src="photo/Dan.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>Large Large Language Model Design & Optimization, LLM-based Intelligent Systems</p>
+          <h4>Recent Publications</h4>
+            <ul style="margin-left: 20px;">
+              <li>-</li>
+            </ul>
+            <h4>Contact</h4>
+            <p>Email: daniel081009@kangwon.ac.kr</p>
+          </div>
+        </div>`
+      },
+      'modal_student_c': {
+        title: '김상엽 (Undergraduate Researcher)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
+        <img src="photo/Yeop.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>AI Software Systems Engineering, Scalable High-performance Storage Architectures</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>-</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: x1111101101@kangwon.ac.kr</p>
+        </div>
+      </div>`
+      },
+      'modal_student_d': {
+        title: '임형근 (Undergraduate Researcher)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
+        <img src="photo/LIM.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>AI BigData Analysis, Deeplearning Model Optimization</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>-</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: lhgdream4@naver.com</p>
+        </div>
+      </div>`
+      },
+      /* [새로운 학생 모달 데이터 추가 방법]
+         위의 'modal_student_c' 블록이 끝나는 중괄호(}) 뒤에 콤마(,)를 찍고 아래 내용을 복사해서 붙여넣으세요.
+         
+         'modal_student_d': {
+           title: '이름 (과정)',
+           content: `... 위와 같은 형식의 HTML 코드 ...`
+         }
+      */
+    };
+
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+
+    function openModal(studentId) {
+      const data = studentData[studentId];
+      if (data) {
+        modalTitle.textContent = data.title;
+        modalBody.innerHTML = data.content;
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      }
+    }
+
+    function closeModal(event) {
+      if (event === undefined || event.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+      }
+    }
+
+    // Handle escape key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Also make Faculty clickable if needed
+    // ...
+  </script>
+</body>
+
+</html>

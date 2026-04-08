@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News | Human-Centered AI Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-main">
+      <a href="index.html" class="brand" style="text-decoration: none;">
+        <img src="photo/logo.png" alt="HCAI Logo" class="brand-logo">
+        <div>
+          <h1>Human-Centered AI Lab</h1>
+          <p>INNOVATIVE HUMAN-CENTERED AI FOR THE FUTURE</p>
+        </div>
+      </a>
+      <div class="top-links">
+        <a href="https://www.kangwon.ac.kr/" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">account_balance</span> KNU Home
+        </a>
+        <a href="https://eais.kangwon.ac.kr/EAIS/index.do" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">computer</span> 첨단AI공학과
+        </a>
+        <a href="https://kcloud.kangwon.ac.kr/login" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">cloud</span> K-Cloud
+        </a>
+        <a href="https://eruri.kangwon.ac.kr/login/index.php" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">school</span> 이루리
+        </a>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="index.html">About</a>
+        <a href="people.html">People</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="news.html" class="active">News</a>
+        <a href="lab-life.html">Lab Life</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" style="padding: 80px 20px;">
+    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 40px;">NEWS & UPDATES</h2>
+
+    <style>
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .page-btn {
+        padding: 10px 16px;
+        border: 1px solid var(--border-color);
+        background: #fff;
+        color: var(--text-muted);
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-left: -1px;
+      }
+
+      .page-btn:first-child {
+        margin-left: 0;
+      }
+
+      .page-btn:hover {
+        background: var(--bg-gray);
+      }
+
+      .page-btn.active {
+        color: var(--accent-blue);
+        font-weight: 700;
+        border: 1px solid var(--accent-blue);
+        z-index: 1;
+        position: relative;
+      }
+
+      .page-btn.disabled {
+        color: #ccc;
+        cursor: not-allowed;
+      }
+
+      .news-text {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: all 0.3s ease;
+      }
+
+      .news-text.expanded {
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+      }
+    </style>
+    <div id="paginate-container" style="display: flex; flex-direction: column; gap: 40px;">
+      <article class="photo-card"
+        style="display: grid; grid-template-columns: 300px 1fr; gap: 30px; padding: 20px; border: 1px solid var(--border-color);">
+        <!-- 뉴스 목록의 썸네일 이미지입니다. src= 부분에 사진 파일명을 적어주세요. -->
+        <img src="photo/N1.jpg" alt="News Image"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+        <div>
+          <time style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">March, 2026</time>
+          <h4 style="font-size: 1.4rem; margin: 10px 0;">워터코리아 컨퍼런스(음성전사 기반 공공상수도 민원 처리)</h4>
+          <p class="news-text">워터코리아 컨퍼런스에서 상수도 민원 자동화를 위한 LLM 기반 시스템에 관한 연구를 발표하였습니다. 본 발표는 비정형 민원 데이터의 자동 처리 및 지능형 행정
+            지원 가능성을 제시한 것으로, 대규모 데이터와 생성형 인공지능을 접목한 공공서비스 혁신 방향을 공유하였습니다. 또한 학회 참석을 통해 최신 빅데이터 및 인공지능 기술 동향을 폭넓게 파악하고,
+            향후 연구 확장 가능성을 모색하였습니다.</p>
+          <a href="#"
+            onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Show Less ←' : 'Read More →'; return false;"
+            style="text-decoration: none; font-weight: 700; color: var(--primary-navy); display: block; margin-top: 15px;">Read
+            More →</a>
+        </div>
+      </article>
+
+      <article class="photo-card"
+        style="display: grid; grid-template-columns: 300px 1fr; gap: 30px; padding: 20px; border: 1px solid var(--border-color);">
+        <!-- 뉴스 목록의 썸네일 이미지입니다. src= 부분에 사진 파일명을 적어주세요. -->
+        <img src="photo/N2.jpg" alt="News Image"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+        <div>
+          <time style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">January, 2026</time>
+          <h4 style="font-size: 1.4rem; margin: 10px 0;">World of Concrete 2026 in Lasvagas</h4>
+          <p class="news-text">World of Concrete 2026에 참가하여, 콘크리트 산업의 최신 기술과 공정 최적화 관련 제품 및 솔루션을 폭넓게 살펴보았습니다. 특히 최근
+            산업계에서 친환경 콘크리트와 스마트 콘크리트에 대한 관심이 높아지고 있음을 확인하였으며, 이는 지속가능성과 디지털 전환을 동시에 반영하는 중요한 흐름으로 판단됩니다. 이번 참여를 통해 건설·제조
+            분야에서 인공지능 기반 공정 최적화 연구의 적용 가능성을 더욱 구체화할 수 있었습니다.</p>
+          <a href="#"
+            onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Show Less ←' : 'Read More →'; return false;"
+            style="text-decoration: none; font-weight: 700; color: var(--primary-navy); display: block; margin-top: 15px;">Read
+            More →</a>
+        </div>
+      </article>
+
+      <article class="photo-card"
+        style="display: grid; grid-template-columns: 300px 1fr; gap: 30px; padding: 20px; border: 1px solid var(--border-color);">
+        <!-- 뉴스 목록의 썸네일 이미지입니다. src= 부분에 사진 파일명을 적어주세요. -->
+        <img src="photo/N3.jpg" alt="News Image"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+        <div>
+          <time style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">December, 2025</time>
+          <h4 style="font-size: 1.4rem; margin: 10px 0;">IEEE BIG DATA 2025</h4>
+          <p class="news-text">IEEE BigData 2025 컨퍼런스에서 연구 성과를 발표하였으며, 이를 통해 최신 빅데이터 및 인공지능 기술 동향을 폭넓게 파악하였습니다. 국제 학술
+            교류를 통해 데이터 중심 인공지능, 대규모 학습, 생성형 AI 응용 등 다양한 연구 흐름을 확인하였고, 연구실의 향후 연구 방향과 글로벌 협력 가능성을 모색하는 계기를 마련하였습니다.</p>
+          <a href="#"
+            onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Show Less ←' : 'Read More →'; return false;"
+            style="text-decoration: none; font-weight: 700; color: var(--primary-navy); display: block; margin-top: 15px;">Read
+            More →</a>
+        </div>
+      </article>
+
+      <article class="photo-card"
+        style="display: grid; grid-template-columns: 300px 1fr; gap: 30px; padding: 20px; border: 1px solid var(--border-color);">
+        <!-- 뉴스 목록의 썸네일 이미지입니다. src= 부분에 사진 파일명을 적어주세요. -->
+        <img src="photo/N5.jpg" alt="News Image"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+        <div>
+          <time style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">April, 2024</time>
+          <h4 style="font-size: 1.4rem; margin: 10px 0;">스포츠AI빅데이터 학회 창립총회 및 학술대회</h4>
+          <p class="news-text">2024년 4월 6일 올림픽파크텔에서 개최된 스포츠AI빅데이터학회 창립총회에 참석하였습니다. 교육이사로서 학회 활동에 참여하며, 스포츠 데이터와 인공지능 융합
+            연구의 발전 방향, 학술 교류 활성화, 그리고 산업·교육 현장으로의 확산 가능성에 대해 다양한 논의를 진행하였습니다. 이를 통해 스포츠 AI 분야의 연구 네트워크를 강화하고 학문적 협력 기반을
+            넓히는 계기를 마련하였습니다.</p>
+          <a href="#"
+            onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Show Less ←' : 'Read More →'; return false;"
+            style="text-decoration: none; font-weight: 700; color: var(--primary-navy); display: block; margin-top: 15px;">Read
+            More →</a>
+        </div>
+      </article>
+    </div>
+    <div class="pagination" id="pagination-controls"></div>
+  </main>
+
+  <script>
+    function setupPagination(containerId, controlsId, itemsPerPage) {
+      const container = document.getElementById(containerId);
+      const controls = document.getElementById(controlsId);
+      const items = Array.from(container.children);
+      let currentPage = 1;
+      const totalPages = Math.ceil(items.length / itemsPerPage) || 1;
+
+      function showPage(page) {
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        items.forEach((item, index) => {
+          item.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? '' : 'none';
+        });
+        renderControls();
+      }
+
+      function renderControls() {
+        controls.innerHTML = '';
+        if (totalPages <= 1) return;
+
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'page-btn ' + (currentPage === 1 ? 'disabled' : '');
+        prevBtn.innerHTML = '&lang;';
+        prevBtn.onclick = () => showPage(currentPage - 1);
+        controls.appendChild(prevBtn);
+
+        for (let i = 1; i <= totalPages; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'page-btn ' + (currentPage === i ? 'active' : '');
+          btn.textContent = i;
+          btn.onclick = () => showPage(i);
+          controls.appendChild(btn);
+        }
+
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'page-btn ' + (currentPage === totalPages ? 'disabled' : '');
+        nextBtn.innerHTML = '&rang;';
+        nextBtn.onclick = () => showPage(currentPage + 1);
+        controls.appendChild(nextBtn);
+      }
+
+      showPage(1);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('paginate-container');
+      // The pagination will naturally occur when items exceed itemsPerPage (5)
+      setupPagination('paginate-container', 'pagination-controls', 5);
+    });
+  </script>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div
+        style="display:grid; grid-template-columns: auto 1fr auto; gap:40px; align-items:start; padding: 48px 0 32px;">
+
+        <!-- 왼쪽: 로고 + 연구실 이미지 공간 -->
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:16px;">
+          <img src="photo/logo2.png" alt="HCAI Logo" style="height:70px; display:block;">
+          <!-- 연구실 이미지 공간: 아래 src= 부분에 이미지 파일명을 넣어주세요 (예: lab_photo.jpg) -->
+          <div style=>
+            <!-- <img src="photo/lab_photo.jpg" alt="연구실 사진" style="width:100%; height:100%; object-fit:cover;"> -->
+          </div>
+        </div>
+
+        <!-- 가운데: 연구소 연락처 -->
+        <div style="color:rgba(0, 0, 0, 1); font-size:0.82rem; line-height:1.9;">
+          <p style="margin:0 0 14px; font-weight:700; font-size:0.9rem; color:#000000; letter-spacing:0.5px;">
+            Human-Centered AI Lab</p>
+          <p style="margin:0 0 4px;">📍 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
+          <p style="margin:0 0 14px;">📞 Tel : 033-570-6587 &nbsp;|&nbsp; ✉️
+            tiockdrbs@kangwon.ac.kr</p>
+        </div>
+
+
+
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.1); padding:20px 0; text-align:center;">
+        <p style="margin:0; font-size:0.78rem; color:rgba(0, 0, 0, 0.45); letter-spacing:0.5px;">COPYRIGHT © 2026
+          KANGWON NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Overlay for News -->
+  <div id="modalOverlay" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle" class="modal-title">News Title</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modalBody" class="modal-body">
+        <!-- Content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const newsData = {
+      'news_1': {
+        title: '워터코리아 컨퍼런스(음성전사 기반 공공상수도 민원 처리)',
+        content: '<!-- [모달창 이미지] 아래 src= 부분에 상세 내용의 사진 파일명을 수정해주세요 -->' +
+          '<img src="photo/news1_detail.jpg" alt="Detail Image" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">' +
+          '<!-- [모달창 내용] 여기서부터 실제 상세 텍스트 내용을 수정하시면 됩니다 -->' +
+          '<p><strong>Date: March 29, 2026</strong></p>' +
+          '<p>The Human-Centered AI Lab is actively seeking highly motivated Ph.D., Master\'s, and undergraduate researchers to join our team for the upcoming Fall semester.</p> ' +
+          '<h4>Research Areas:</h4>' +
+          '<ul style="margin-left: 20px;">' +
+          '  <li>Human-Computer Interaction (HCI)</li>' +
+          '  <li>Multimodal Interfaces & Wearable Computing</li>' +
+          '  <li>Explainable AI and AI Ethics</li>' +
+          '</ul>' +
+          '<p>If you are passionate about building the future of intelligent systems that prioritize human well-being, please send your CV and transcript to Prof. Gildong Hong (gdhong@kangwon.ac.kr).</p>'
+      },
+      'news_2': {
+        title: 'New Lab Website Launched',
+        content: '<!-- [모달창 이미지] 아래 src= 부분에 상세 내용의 사진 파일명을 수정해주세요 -->' +
+          '<img src="photo/news2_detail.jpg" alt="Detail Image" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">' +
+          '<!-- [모달창 내용] 여기서부터 실제 상세 텍스트 내용을 수정하시면 됩니다 -->' +
+          '<p><strong>Date: March 20, 2026</strong></p>' +
+          '<p>We are thrilled to announce the launch of our newly redesigned laboratory website.</p>' +
+          '<p>The new portal provides comprehensive information regarding our primary research pillars: HCI, AI Ethics, and Ubiquitous Computing. It also serves as a centralized hub for our publications, academic activities, and interactive data profiling tools designed specifically for affiliated researchers.</p>' +
+          '<p>We invite you to explore the updated sections and discover how our lab is leading the conversation on algorithmic preservation of human rights and user-centric systems.</p>'
+      }
+    };
+
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+
+    function openNewsModal(newsId) {
+      const data = newsData[newsId];
+      if (data) {
+        modalTitle.textContent = data.title;
+        modalBody.innerHTML = data.content;
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(event) {
+      if (event === undefined || event.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+
+</html>

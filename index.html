@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human-Centered AI Lab | KNU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-main">
+      <a href="index.html" class="brand" style="text-decoration: none;">
+        <img src="photo/logo.png" alt="HCAI Logo" class="brand-logo">
+        <div>
+          <h1>Human-Centered AI Lab</h1>
+          <p>INNOVATIVE HUMAN-CENTERED AI FOR THE FUTURE</p>
+        </div>
+      </a>
+      <div class="top-links">
+        <a href="https://www.kangwon.ac.kr/" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">account_balance</span> KNU Home
+        </a>
+        <a href="https://eais.kangwon.ac.kr/EAIS/Lab6.do" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">computer</span> 첨단AI공학과
+        </a>
+        <a href="https://kcloud.kangwon.ac.kr/login" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">cloud</span> K-Cloud
+        </a>
+        <a href="https://eruri.kangwon.ac.kr/login/index.php" target="_blank" class="top-badge">
+          <span class="material-symbols-outlined">school</span> 이루리
+        </a>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="index.html" class="active">About</a>
+        <a href="people.html">People</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="news.html">News</a>
+        <a href="lab-life.html">Lab Life</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-inner">
+        <div class="hero-slider">
+          <div class="hero-slide active" style="background-image: url('photo/hero1.png');"></div>
+          <div class="hero-slide" style="background-image: url('photo/hero2.png');"></div>
+          <div class="hero-slide" style="background-image: url('photo/hero3.png');"></div>
+        </div>
+
+        <!-- 슬라이더 네비게이션 버튼 -->
+        <button class="hero-btn prev" onclick="changeSlide(-1)">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="hero-btn next" onclick="changeSlide(1)">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+
+        <div class="hero-inner">
+
+          <!-- 슬라이드 1: 멀티모달 AI 기반 디지털 헬스케어 -->
+          <div class="hero-content active">
+            <div class="hero-text">
+              <h2>HUMAN-CENTERED<br>HEALTHCARE AI</h2>
+              <p class="hero-desc">영상, 생체신호, 행동 데이터를 통합 분석하여 체형 변화와 건강 이상 징후를 정밀하게 탐지합니다.
+                mmWave 레이다와 LLM을 결합한 보행 분석으로 고령자의 건강을 지능적으로 모니터링합니다.</p>
+            </div>
+            <aside class="hero-panel">
+              <h3><span class="material-symbols-outlined">monitor_heart</span> 연구 분야</h3>
+              <ul>
+                <li>멀티모달 AI 기반 신체 분석</li>
+                <li>3D 체형 정보 도출 및 질환 예측</li>
+                <li>mmWave 기반 보행 이상 조기 감지</li>
+                <li>설명 가능한 헬스케어 AI</li>
+              </ul>
+            </aside>
+          </div>
+
+          <!-- 슬라이드 2: LLM 기반 사용자 최적화 시스템 -->
+          <div class="hero-content">
+            <div class="hero-text">
+              <h2>LLM-POWERED<br>INTELLIGENT SYSTEMS</h2>
+              <p class="hero-desc">음성·텍스트·위치·이력 데이터를 통합하여 사용자의 비정형 요청을 이해하고, 최적의 처리 경로를
+                자동으로 제안하는 지능형 시스템을 연구합니다. STT, Embedding, Vector DB, LLM을 결합한 공공 행정 혁신을 이끕니다.</p>
+            </div>
+            <aside class="hero-panel">
+              <h3><span class="material-symbols-outlined">smart_toy</span> 핵심 기술</h3>
+              <ul>
+                <li>음성 인식 (STT) 기반 민원 처리</li>
+                <li>3차원 모델 생성 및 정보 도출</li>
+                <li>LLM 기반 맞춤형 분류·요약</li>
+                <li>지능형 추천 및 처리 최적화</li>
+              </ul>
+            </aside>
+          </div>
+
+          <!-- 슬라이드 3: AI 기반 자율제조 & 운전자 안전지원 -->
+          <div class="hero-content">
+            <div class="hero-text">
+              <h2>AI-DRIVEN<br>SAFETY & MANUFACTURING</h2>
+              <p class="hero-desc">복잡한 산업 현장의 공정 데이터를 학습하여 품질을 예측하고 이상에 대응하는 자율제조 AI,
+                그리고 카메라 기반 생체신호로 운전자 상태를 파악해 사고를 조기 예방하는 개인화 안전지원 시스템을 개발합니다.</p>
+            </div>
+            <aside class="hero-panel">
+              <h3><span class="material-symbols-outlined">hub</span> 연구 과제</h3>
+              <ul>
+                <li>공정 데이터 기반 품질 예측</li>
+                <li>가변형 제조 AI 및 공정 적응</li>
+                <li>운전자 상태 인식 (생체신호)</li>
+                <li>사용자 기반 헬스케어 시스템</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+    </section>
+
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.hero-slide');
+      const contents = document.querySelectorAll('.hero-content');
+      let slideInterval;
+
+      function showSlide(index) {
+        // 인덱스 범위 조정
+        if (index >= slides.length) index = 0;
+        if (index < 0) index = slides.length - 1;
+
+        // 기존 활성 클래스 제거
+        slides[currentSlide].classList.remove('active');
+        contents[currentSlide].classList.remove('active');
+
+        // 새로운 활성 클래스 추가
+        currentSlide = index;
+        slides[currentSlide].classList.add('active');
+        contents[currentSlide].classList.add('active');
+      }
+
+      function changeSlide(direction) {
+        stopAutoSlide();
+        showSlide(currentSlide + direction);
+        startAutoSlide();
+      }
+
+      function startAutoSlide() {
+        slideInterval = setInterval(() => {
+          showSlide(currentSlide + 1);
+        }, 5000); // 5초마다 전환
+      }
+
+      function stopAutoSlide() {
+        clearInterval(slideInterval);
+      }
+
+      // 초기 실행
+      startAutoSlide();
+
+      // 수동 조작을 위한 키보드 숫자키 연동
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '1') { stopAutoSlide(); showSlide(0); startAutoSlide(); }
+        if (e.key === '2') { stopAutoSlide(); showSlide(1); startAutoSlide(); }
+        if (e.key === '3') { stopAutoSlide(); showSlide(2); startAutoSlide(); }
+      });
+    </script>
+
+    <section class="section container">
+      <span class="area-label">Research</span>
+      <h3 class="area-title">RESEARCH AREAS</h3>
+      <div class="grid-2" style="margin-top: 30px;">
+
+        <article class="photo-card">
+          <!-- [연구 이미지 1] src= 부분에 사진 파일명을 입력해주세요 (예: research_img1.jpg) -->
+          <img src="photo/research_img1.png" alt="멀티모달 AI 기반 디지털 헬스케어" class="card-img"
+            style="width:100%; height:220px; object-fit:cover; background:#f0f2f5; display:block;">
+          <div class="card-content">
+            <div class="card-tags"><span class="tag">Multimodal AI</span><span class="tag">Healthcare</span></div>
+            <!-- [연구 제목 1] 아래 h4 태그 안의 텍스트를 수정해주세요 -->
+            <h4 class="card-title">멀티모달 AI 기반 디지털 헬스케어</h4>
+            <!-- [연구 설명 1] 아래 p 태그 안의 텍스트를 수정해주세요 -->
+            <p class="card-text">영상, 생체신호, 행동 데이터를 통합 분석하여 체형 변화와 건강 이상 징후를 정밀하게 탐지하는 AI 기술을 개발합니다.</p>
+            <a href="research.html" class="card-link">자세히 보기 →</a>
+          </div>
+        </article>
+
+        <article class="photo-card">
+          <!-- [연구 이미지 2] src= 부분에 사진 파일명을 입력해주세요 (예: research_img2.jpg) -->
+          <img src="photo/research_img2.png" alt="Research Image 2" class="card-img"
+            style="width:100%; height:220px; object-fit:cover; background:#f0f2f5; display:block;">
+          <div class="card-content">
+            <div class="card-tags"><span class="tag">mmWave</span><span class="tag">LLM</span></div>
+            <!-- [연구 제목 2] 아래 h4 태그 안의 텍스트를 수정해주세요 -->
+            <h4 class="card-title">적응형 AI 기반 보행 헬스케어</h4>
+            <!-- [연구 설명 2] 아래 p 태그 안의 텍스트를 수정해주세요 -->
+            <p class="card-text">mmWave 레이다와 Diffusion Model, LLM을 결합하여 고령자의 보행 이상을 조기 감지하는 설명 가능한 헬스케어 시스템을 연구합니다.</p>
+            <a href="research.html" class="card-link">자세히 보기 →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <span class="area-label">Publications</span>
+        <h3 class="area-title">RECENT PUBLICATIONS</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 30px;">
+
+          <a href="https://doi.org/10.3390/app16021096" target="_blank"
+            style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px; text-decoration:none; transition: background 0.2s;"
+            onmouseover="this.style.background='rgba(255,255,255,0.13)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <span
+              style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Spinal Line Detection for
+                Posture Evaluation Through Training-Free 3D Human Body Reconstruction with 2D Depth Images</h4>
+              <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Kim, S., Lee, H. J., Lee, J., Kim,
+                C., & Lee, T. — <em>Applied Sciences</em></p>
+            </div>
+          </a>
+
+          <a href="https://www.nature.com/articles/s41598-025-21611-4" target="_blank"
+            style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px; text-decoration:none; transition: background 0.2s;"
+            onmouseover="this.style.background='rgba(255,255,255,0.13)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <span
+              style="background:rgba(255,255,255,0.15); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Interpretable deep
+                multimodal-based tomato disease diagnosis and severity estimation</h4>
+              <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Nasir, N., Ramzan, S., Ali, B., ...,
+                Kim, C., et al. — <em>Scientific Reports</em></p>
+            </div>
+          </a>
+
+          <a href="https://journals.sagepub.com/doi/10.1177/00220426251352781" target="_blank"
+            style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px; text-decoration:none; transition: background 0.2s;"
+            onmouseover="this.style.background='rgba(255,255,255,0.13)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <span
+              style="background:rgba(255,255,255,0.15); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+            <div>
+              <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Development of an AI-Based
+                Model for Identifying Doping Drugs Through Pill Image Analysis</h4>
+              <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Lee, J. Y., Park, J. H., & Kim, C. —
+                <em>Journal of Drug Issues</em>
+              </p>
+            </div>
+          </a>
+
+        </div>
+        <div style="text-align:center; margin-top:36px;">
+          <a href="publications.html"
+            style="display:inline-block; padding: 12px 36px; border: 2px solid rgba(255,255,255,0.6); border-radius: 8px; color:#fff; text-decoration:none; font-weight:700; font-size:1rem; letter-spacing:0.5px; transition: background 0.2s;"
+            onmouseover="this.style.background='rgba(255,255,255,0.12)'"
+            onmouseout="this.style.background='transparent'">
+            전체 논문 보기 →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <span class="area-label">Research Interests</span>
+      <h3 class="area-title">RESEARCH INTERESTS</h3>
+      <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 48px; max-width: 100%;">
+        우리 연구실이 집중하고 있는 핵심 연구 관심 분야입니다.</p>
+
+      <style>
+        .interest-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+          .interest-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 500px) {
+          .interest-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .interest-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 16px;
+          padding: 36px 24px 28px;
+          border: 1px solid var(--border-color);
+          border-radius: 16px;
+          text-decoration: none;
+          color: inherit;
+          background: #fff;
+          transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+          cursor: pointer;
+        }
+
+        .interest-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+          border-color: var(--accent-blue);
+        }
+
+        .interest-icon {
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+        }
+
+        .interest-card h4 {
+          font-size: 1.05rem;
+          font-weight: 800;
+          text-align: center;
+          margin: 0;
+          color: var(--primary-navy);
+        }
+
+        .interest-card p {
+          font-size: 0.88rem;
+          color: var(--text-muted);
+          text-align: center;
+          margin: 0;
+          line-height: 1.6;
+        }
+
+        .interest-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          justify-content: center;
+          margin-top: 4px;
+        }
+
+        .interest-tags span {
+          font-size: 0.75rem;
+          padding: 3px 10px;
+          border-radius: 20px;
+          font-weight: 600;
+        }
+      </style>
+
+      <div class="interest-grid">
+
+        <!-- 헬스케어 -->
+        <a href="contact.html" class="interest-card">
+          <div class="interest-icon" style="background: #e8f4fd;">
+            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#1565C0;">monitor_heart</span>
+          </div>
+          <h4>헬스케어 AI</h4>
+          <p>멀티모달 데이터 기반 신체 분석, 보행 이상 감지, 건강 모니터링 시스템 연구</p>
+          <div class="interest-tags">
+            <span style="background:#e8f4fd; color:#1565C0;">Multimodal</span>
+            <span style="background:#e8f4fd; color:#1565C0;">Healthcare</span>
+          </div>
+        </a>
+
+        <!-- LLM -->
+        <a href="contact.html" class="interest-card">
+          <div class="interest-icon" style="background: #f3e5f5;">
+            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#7B1FA2;">smart_toy</span>
+          </div>
+          <h4>LLM 응용 연구</h4>
+          <p>음성·텍스트 기반 비정형 입력 처리, 맞춤형 분류·요약, 지능형 추천 시스템 연구</p>
+          <div class="interest-tags">
+            <span style="background:#f3e5f5; color:#7B1FA2;">LLM</span>
+            <span style="background:#f3e5f5; color:#7B1FA2;">STT</span>
+            <span style="background:#f3e5f5; color:#7B1FA2;">Vector DB</span>
+          </div>
+        </a>
+
+        <!-- 인공지능 모델 -->
+        <a href="contact.html" class="interest-card">
+          <div class="interest-icon" style="background: #fff8e1;">
+            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#F57F17;">psychology</span>
+          </div>
+          <h4>인공지능 모델</h4>
+          <p>Transformer, Diffusion Model, Deep Learning 등 최신 AI 모델 연구 및 응용</p>
+          <div class="interest-tags">
+            <span style="background:#fff8e1; color:#F57F17;">Transformer</span>
+            <span style="background:#fff8e1; color:#F57F17;">Diffusion</span>
+          </div>
+        </a>
+
+        <!-- 데이터 분석 -->
+        <a href="contact.html" class="interest-card">
+          <div class="interest-icon" style="background: #e8f5e9;">
+            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#2E7D32;">bar_chart</span>
+          </div>
+          <h4>데이터 분석</h4>
+          <p>공정 데이터, 스포츠 데이터, 환경 데이터 등 대규모 데이터 기반 패턴 분석 및 예측 모델 개발</p>
+          <div class="interest-tags">
+            <span style="background:#e8f5e9; color:#2E7D32;">빅데이터</span>
+            <span style="background:#e8f5e9; color:#2E7D32;">예측 모델</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div
+        style="display:grid; grid-template-columns: auto 1fr auto; gap:40px; align-items:start; padding: 48px 0 32px;">
+
+        <!-- 왼쪽: 로고 + 연구실 이미지 공간 -->
+        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:16px;">
+          <img src="photo/logo2.png" alt="HCAI Logo" style="height:70px; display:block;">
+          <!-- 연구실 이미지 공간: 아래 src= 부분에 이미지 파일명을 넣어주세요 (예: lab_photo.jpg) -->
+          <div style=>
+            <!-- <img src="photo/lab_photo.jpg" alt="연구실 사진" style="width:100%; height:100%; object-fit:cover;"> -->
+          </div>
+        </div>
+
+        <!-- 가운데: 연구소 연락처 -->
+        <div style="color:rgba(0, 0, 0, 1); font-size:0.82rem; line-height:1.9;">
+          <p style="margin:0 0 14px; font-weight:700; font-size:0.9rem; color:#000000; letter-spacing:0.5px;">
+            Human-Centered AI Lab</p>
+          <p style="margin:0 0 4px;">📍 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
+          <p style="margin:0 0 14px;">📞 Tel : 033-570-6587 &nbsp;|&nbsp; ✉️
+            tiockdrbs@kangwon.ac.kr</p>
+        </div>
+
+
+
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.1); padding:20px 0; text-align:center;">
+        <p style="margin:0; font-size:0.78rem; color:rgba(0, 0, 0, 0.45); letter-spacing:0.5px;">COPYRIGHT © 2026
+          KANGWON NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
