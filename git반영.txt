@@ -1,0 +1,16 @@
+cd ~/Desktop/나의연구/홈페이지
+git remote remove origin
+git remote add origin https://github.com/HealthHCAL/HCAL.git
+git config user.name "HealthHCAL"
+git config user.email "HealthHCAL 계정 이메일"
+git remote -v
+git status
+git branch
+git add .
+git commit -m "초기 작업환경 반영"
+git push origin master --force
+
+
+git add .
+git commit -m "수정 내용"
+git push origin master
