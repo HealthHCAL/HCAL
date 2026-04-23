@@ -82,9 +82,9 @@
         <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
           <div class="cursor-pointer"
             style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_a')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onclick="openModal('modal_student_sim')"
+            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
             onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <!-- 아래 src="student_a.jpg" 부분에 학생 사진 파일명(예: photo1.png)을 적어주세요 -->
             <img src="photo/Sim.jpg" alt="심상욱" style="width: 100%; height: 100%; object-fit: cover;">
             <div class="hover-overlay"
               style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
@@ -103,12 +103,12 @@
     <section style="margin-bottom: 60px;">
       <h3 class="area-title" style="border-left-color: #34A853;">Master's Students (석사과정)</h3>
       <div class="dark-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+        <!-- 오단휘 -->
         <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
           <div class="cursor-pointer"
             style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_b')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onclick="openModal('modal_student_oh')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
             onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <!-- 아래 src="student_b.jpg" 부분에 학생 사진 파일명을 적어주세요 -->
             <img src="photo/Dan.jpg" alt="오단휘" style="width: 100%; height: 100%; object-fit: cover;">
             <div class="hover-overlay"
               style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
@@ -120,24 +120,43 @@
           <h4 style="font-size: 1.1rem; margin-bottom: 5px;">오단휘</h4>
           <p style="font-size: 0.85rem; color: var(--text-muted);">Master's Student</p>
         </div>
+
+        <!-- Turabayo Jean Chrysostome -->
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
+            onclick="openModal('modal_student_turabayo')"
+            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <img src="photo/Ta.jpg" alt="Turabayo Jean Chrysostome"
+              style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">Turabayo Jean Chrysostome</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Master's Student</p>
+        </div>
       </div>
     </section>
+
+
+
 
     <!-- Undergraduate Students -->
     <section style="margin-bottom: 60px;">
       <h3 class="area-title" style="border-left-color: #FBBC05;">Undergraduate Students (학부생과정)</h3>
 
-      <!-- [새로운 학생 추가 방법] 
-           1. 아래의 <div class="photo-card">...</div> 블록을 복사하여 바로 아래에 붙여넣으세요.
-           2. img 태그의 src를 새로운 사진 파일명(예: photo/new_student.jpg)으로 수정하세요.
-           3. openModal('모달_고유_ID')의 ID를 새로운 ID(예: modal_student_d)로 수정하세요.
-           4. 하단의 <script> 태그 내 studentData 객체에도 동일한 ID(예: modal_student_d)와 상세 내용을 추가해야 합니다. -->
-
       <div class="dark-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+        <!-- 김상엽 -->
         <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
           <div class="cursor-pointer"
             style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_c')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onclick="openModal('modal_student_yeop')"
+            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
             onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
             <img src="photo/Yeop.jpg" alt="김상엽" style="width: 100%; height: 100%; object-fit: cover;">
             <div class="hover-overlay"
@@ -151,10 +170,12 @@
           <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
         </div>
 
+        <!-- 임형근 -->
         <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
           <div class="cursor-pointer"
             style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_d')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onclick="openModal('modal_student_lim')"
+            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
             onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
             <img src="photo/LIM.jpg" alt="임형근" style="width: 100%; height: 100%; object-fit: cover;">
             <div class="hover-overlay"
@@ -165,6 +186,62 @@
             </div>
           </div>
           <h4 style="font-size: 1.1rem; margin-bottom: 5px;">임형근</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
+        </div>
+
+        <!-- 빈 슬롯 1 -->
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f9f9f9; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 2px dashed #ddd;"
+            onclick="openModal('modal_student_new1')"
+            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <img src="photo/0.jpg" alt="김주현" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">김주현</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
+        </div>
+
+        <!-- 박상훈 -->
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f9f9f9; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 2px dashed #ddd;"
+            onclick="openModal('modal_student_new2')"
+            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <img src="photo/sang.jpg" alt="박상훈" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">박상훈</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
+        </div>
+
+        <!-- 심영준 -->
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f9f9f9; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 2px dashed #ddd;"
+            onclick="openModal('modal_student_yj')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <img src="photo/yj.jpg" alt="심영준" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">심영준</h4>
           <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
         </div>
 
@@ -181,7 +258,8 @@
         <div style="display:flex; flex-direction:column; align-items:flex-start; gap:16px;">
           <img src="photo/logo2.png" alt="HCAI Logo" style="height:70px; display:block;">
           <!-- 연구실 이미지 공간: 아래 src= 부분에 이미지 파일명을 넣어주세요 (예: lab_photo.jpg) -->
-          <div style=>
+          <div
+            style="width:100%; height:100px; background:#f9f9f9; border-radius:8px; display:flex; align-items:center; justify-content:center; border:1px solid #eee;">
             <!-- <img src="photo/lab_photo.jpg" alt="연구실 사진" style="width:100%; height:100%; object-fit:cover;"> -->
           </div>
         </div>
@@ -220,13 +298,11 @@
 
   <script>
     const studentData = {
-      'modal_student_a': {
+      'modal_student_sim': {
         title: '심상욱 (Ph.D. Candidate)',
         content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
-        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
         <img src="photo/Sim.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
         <div style="flex: 1; min-width: 250px;">
-          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
           <h4 style="margin-top: 0;">Research Interests</h4>
           <p>Human-AI Collaboration, Multimodal Interaction, Autonomous Vehicles.</p>
           <h4>Recent Publications</h4>
@@ -239,13 +315,11 @@
         </div>
       </div>`
       },
-      'modal_student_b': {
+      'modal_student_oh': {
         title: '오단휘 (Master\'s Student)',
         content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
-        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
         <img src="photo/Dan.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
         <div style="flex: 1; min-width: 250px;">
-          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
           <h4 style="margin-top: 0;">Research Interests</h4>
           <p>Large Large Language Model Design & Optimization, LLM-based Intelligent Systems</p>
           <h4>Recent Publications</h4>
@@ -257,13 +331,27 @@
           </div>
         </div>`
       },
-      'modal_student_c': {
+      'modal_student_turabayo': {
+        title: 'Turabayo Jean Chrysostome (Master\'s Student)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <img src="photo/Ta.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>Multimodal AI, Computer Vision, Medical Imaging, Digital Healthcare</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>-</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: turachris123@gmail.com</p>
+        </div>
+      </div>`
+      },
+      'modal_student_yeop': {
         title: '김상엽 (Undergraduate Researcher)',
         content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
-        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
         <img src="photo/Yeop.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
         <div style="flex: 1; min-width: 250px;">
-          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
           <h4 style="margin-top: 0;">Research Interests</h4>
           <p>AI Software Systems Engineering, Scalable High-performance Storage Architectures</p>
           <h4>Recent Publications</h4>
@@ -275,13 +363,11 @@
         </div>
       </div>`
       },
-      'modal_student_d': {
+      'modal_student_lim': {
         title: '임형근 (Undergraduate Researcher)',
         content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
-        <!-- [모달창 이미지] 아래 src= 부분에 사진 파일명을 수정해주세요 -->
         <img src="photo/LIM.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
         <div style="flex: 1; min-width: 250px;">
-          <!-- [모달창 내용] 여기서부터 실제 텍스트 내용을 수정하시면 됩니다 -->
           <h4 style="margin-top: 0;">Research Interests</h4>
           <p>AI BigData Analysis, Deeplearning Model Optimization</p>
           <h4>Recent Publications</h4>
@@ -293,14 +379,54 @@
         </div>
       </div>`
       },
-      /* [새로운 학생 모달 데이터 추가 방법]
-         위의 'modal_student_c' 블록이 끝나는 중괄호(}) 뒤에 콤마(,)를 찍고 아래 내용을 복사해서 붙여넣으세요.
-         
-         'modal_student_d': {
-           title: '이름 (과정)',
-           content: `... 위와 같은 형식의 HTML 코드 ...`
-         }
-      */
+      'modal_student_new1': {
+        title: '김주현 (Undergraduate Researcher)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <img src="photo/-.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>AI BigData Analysis, Deeplearning Model Optimization</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>-</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: - </p>
+        </div>
+      </div>`
+      },
+      'modal_student_new2': {
+        title: '박상훈 (Undergraduate Researcher)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <img src="photo/sang.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>AI Software Systems Engineering</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>-</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: tkdgnsqkr100@naver.com</p>
+        </div>
+      </div>`
+      },
+      'modal_student_yj': {
+        title: '심영준 (Undergraduate Researcher)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <img src="photo/yj.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>Large Large Language Model Design & Optimization</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>-</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: simyj02@kangwon.ac.kr</p>
+        </div>
+      </div>`
+      }
     };
 
     const modalOverlay = document.getElementById('modalOverlay');
@@ -330,9 +456,6 @@
         closeModal();
       }
     });
-
-    // Also make Faculty clickable if needed
-    // ...
   </script>
 </body>
 
