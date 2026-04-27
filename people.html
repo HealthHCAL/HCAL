@@ -226,25 +226,6 @@
           <h4 style="font-size: 1.1rem; margin-bottom: 5px;">박상훈</h4>
           <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
         </div>
-
-        <!-- 심영준 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f9f9f9; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 2px dashed #ddd;"
-            onclick="openModal('modal_student_yj')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/yj.jpg" alt="심영준" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">심영준</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
-        </div>
-
       </div>
     </section>
   </main>
@@ -324,7 +305,7 @@
           <p>Large Large Language Model Design & Optimization, LLM-based Intelligent Systems</p>
           <h4>Recent Publications</h4>
             <ul style="margin-left: 20px;">
-              <li>-</li>
+              <li>Developing a generative ai–based anti-doping consultation system to enhance coaching practice and athlete decision-making</li>
             </ul>
             <h4>Contact</h4>
             <p>Email: daniel081009@kangwon.ac.kr</p>
@@ -411,22 +392,6 @@
         </div>
       </div>`
       },
-      'modal_student_yj': {
-        title: '심영준 (Undergraduate Researcher)',
-        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
-        <img src="photo/yj.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
-        <div style="flex: 1; min-width: 250px;">
-          <h4 style="margin-top: 0;">Research Interests</h4>
-          <p>Large Large Language Model Design & Optimization</p>
-          <h4>Recent Publications</h4>
-          <ul style="margin-left: 20px;">
-            <li>-</li>
-          </ul>
-          <h4>Contact</h4>
-          <p>Email: simyj02@kangwon.ac.kr</p>
-        </div>
-      </div>`
-      }
     };
 
     const modalOverlay = document.getElementById('modalOverlay');
