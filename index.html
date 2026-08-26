@@ -53,77 +53,83 @@
   </header>
 
   <main>
-    <section class="hero container">
+    <section class="hero">
       <div class="hero-slider">
-          <div class="hero-slide active" style="background-image: url('photo/Hero1_1.png');"></div>
-          <div class="hero-slide" style="background-image: url('photo/Hero2_2.png');"></div>
-          <div class="hero-slide" style="background-image: url('photo/Hero3_3.png');"></div>
+        <div class="hero-slide active">
+          <video class="hero-video" src="photo/hero1_1.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="hero-slide">
+          <video class="hero-video" src="photo/hero2.mp4" loop muted playsinline></video>
+        </div>
+        <div class="hero-slide">
+          <video class="hero-video" src="photo/hero3.mp4" loop muted playsinline></video>
+        </div>
+      </div>
+
+      <!-- 슬라이더 네비게이션 버튼 -->
+      <button class="hero-btn prev" onclick="changeSlide(-1)">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <button class="hero-btn next" onclick="changeSlide(1)">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+
+      <div class="hero-inner">
+
+        <!-- 슬라이드 1: 멀티모달 AI 기반 디지털 헬스케어 -->
+        <div class="hero-content active">
+          <div class="hero-text">
+            <h2>HUMAN-CENTERED<br>HEALTHCARE AI</h2>
+            <p class="hero-desc">영상, 생체신호, 행동 데이터를 통합 분석하여 체형 변화와 건강 이상 징후를 정밀하게 탐지합니다.
+              mmWave 레이다와 LLM을 결합한 보행 분석으로 고령자의 건강을 지능적으로 모니터링합니다.</p>
+          </div>
+          <aside class="hero-panel">
+            <h3><span class="material-symbols-outlined">monitor_heart</span> 연구 분야</h3>
+            <ul>
+              <li>멀티모달 AI 기반 신체 분석</li>
+              <li>3D 체형 정보 도출 및 질환 예측</li>
+              <li>mmWave 기반 보행 이상 조기 감지</li>
+              <li>설명 가능한 헬스케어 AI</li>
+            </ul>
+          </aside>
         </div>
 
-        <!-- 슬라이더 네비게이션 버튼 -->
-        <button class="hero-btn prev" onclick="changeSlide(-1)">
-          <span class="material-symbols-outlined">chevron_left</span>
-        </button>
-        <button class="hero-btn next" onclick="changeSlide(1)">
-          <span class="material-symbols-outlined">chevron_right</span>
-        </button>
-
-        <div class="hero-inner">
-
-          <!-- 슬라이드 1: 멀티모달 AI 기반 디지털 헬스케어 -->
-          <div class="hero-content active">
-            <div class="hero-text">
-              <h2>HUMAN-CENTERED<br>HEALTHCARE AI</h2>
-              <p class="hero-desc">영상, 생체신호, 행동 데이터를 통합 분석하여 체형 변화와 건강 이상 징후를 정밀하게 탐지합니다.
-                mmWave 레이다와 LLM을 결합한 보행 분석으로 고령자의 건강을 지능적으로 모니터링합니다.</p>
-            </div>
-            <aside class="hero-panel">
-              <h3><span class="material-symbols-outlined">monitor_heart</span> 연구 분야</h3>
-              <ul>
-                <li>멀티모달 AI 기반 신체 분석</li>
-                <li>3D 체형 정보 도출 및 질환 예측</li>
-                <li>mmWave 기반 보행 이상 조기 감지</li>
-                <li>설명 가능한 헬스케어 AI</li>
-              </ul>
-            </aside>
+        <!-- 슬라이드 2: LLM 기반 사용자 최적화 시스템 -->
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2>LLM-POWERED<br>INTELLIGENT SYSTEMS</h2>
+            <p class="hero-desc">음성·텍스트·위치·이력 데이터를 통합하여 사용자의 비정형 요청을 이해하고, 최적의 처리 경로를
+              자동으로 제안하는 지능형 시스템을 연구합니다. STT, Embedding, Vector DB, LLM을 결합한 공공 행정 혁신을 이끕니다.</p>
           </div>
-
-          <!-- 슬라이드 2: LLM 기반 사용자 최적화 시스템 -->
-          <div class="hero-content">
-            <div class="hero-text">
-              <h2>LLM-POWERED<br>INTELLIGENT SYSTEMS</h2>
-              <p class="hero-desc">음성·텍스트·위치·이력 데이터를 통합하여 사용자의 비정형 요청을 이해하고, 최적의 처리 경로를
-                자동으로 제안하는 지능형 시스템을 연구합니다. STT, Embedding, Vector DB, LLM을 결합한 공공 행정 혁신을 이끕니다.</p>
-            </div>
-            <aside class="hero-panel">
-              <h3><span class="material-symbols-outlined">smart_toy</span> 핵심 기술</h3>
-              <ul>
-                <li>음성 인식 (STT) 기반 민원 처리</li>
-                <li>3차원 모델 생성 및 정보 도출</li>
-                <li>LLM 기반 맞춤형 분류·요약</li>
-                <li>지능형 추천 및 처리 최적화</li>
-              </ul>
-            </aside>
-          </div>
-
-          <!-- 슬라이드 3: AI 기반 자율제조 & 운전자 안전지원 -->
-          <div class="hero-content">
-            <div class="hero-text">
-              <h2>AI-DRIVEN<br>SAFETY & MANUFACTURING</h2>
-              <p class="hero-desc">복잡한 산업 현장의 공정 데이터를 학습하여 품질을 예측하고 이상에 대응하는 자율제조 AI,
-                그리고 카메라 기반 생체신호로 운전자 상태를 파악해 사고를 조기 예방하는 개인화 안전지원 시스템을 개발합니다.</p>
-            </div>
-            <aside class="hero-panel">
-              <h3><span class="material-symbols-outlined">hub</span> 연구 과제</h3>
-              <ul>
-                <li>공정 데이터 기반 품질 예측</li>
-                <li>가변형 제조 AI 및 공정 적응</li>
-                <li>운전자 상태 인식 (생체신호)</li>
-                <li>사용자 기반 헬스케어 시스템</li>
-              </ul>
-            </aside>
-          </div>
+          <aside class="hero-panel">
+            <h3><span class="material-symbols-outlined">smart_toy</span> 핵심 기술</h3>
+            <ul>
+              <li>음성 인식 (STT) 기반 민원 처리</li>
+              <li>3차원 모델 생성 및 정보 도출</li>
+              <li>LLM 기반 맞춤형 분류·요약</li>
+              <li>지능형 추천 및 처리 최적화</li>
+            </ul>
+          </aside>
         </div>
+
+        <!-- 슬라이드 3: AI 기반 자율제조 & 운전자 안전지원 -->
+        <div class="hero-content">
+          <div class="hero-text">
+            <h2>AI-DRIVEN<br>SAFETY & MANUFACTURING</h2>
+            <p class="hero-desc">복잡한 산업 현장의 공정 데이터를 학습하여 품질을 예측하고 이상에 대응하는 자율제조 AI,
+              그리고 카메라 기반 생체신호로 운전자 상태를 파악해 사고를 조기 예방하는 개인화 안전지원 시스템을 개발합니다.</p>
+          </div>
+          <aside class="hero-panel">
+            <h3><span class="material-symbols-outlined">hub</span> 연구 과제</h3>
+            <ul>
+              <li>공정 데이터 기반 품질 예측</li>
+              <li>가변형 제조 AI 및 공정 적응</li>
+              <li>운전자 상태 인식 (생체신호)</li>
+              <li>사용자 기반 헬스케어 시스템</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
     </section>
 
     <script>
@@ -137,6 +143,12 @@
         if (index >= slides.length) index = 0;
         if (index < 0) index = slides.length - 1;
 
+        // 기존 활성 비디오가 있으면 중지
+        const prevVideo = slides[currentSlide].querySelector('video');
+        if (prevVideo) {
+          prevVideo.pause();
+        }
+
         // 기존 활성 클래스 제거
         slides[currentSlide].classList.remove('active');
         contents[currentSlide].classList.remove('active');
@@ -145,6 +157,13 @@
         currentSlide = index;
         slides[currentSlide].classList.add('active');
         contents[currentSlide].classList.add('active');
+
+        // 새로운 활성 비디오가 있으면 재생
+        const nextVideo = slides[currentSlide].querySelector('video');
+        if (nextVideo) {
+          nextVideo.currentTime = 0;
+          nextVideo.play().catch(err => console.log('Video play failed:', err));
+        }
       }
 
       function changeSlide(direction) {
@@ -156,7 +175,7 @@
       function startAutoSlide() {
         slideInterval = setInterval(() => {
           showSlide(currentSlide + 1);
-        }, 5000); // 5초마다 전환
+        }, 10000); // 10초마다 전환
       }
 
       function stopAutoSlide() {
@@ -214,44 +233,326 @@
       <div class="container">
         <span class="area-label">Publications</span>
         <h3 class="area-title">RECENT PUBLICATIONS</h3>
-        <div id="recent-publications-list" style="display: flex; flex-direction: column; gap: 16px; margin-top: 30px;">
+        <style>
+          /* 최근 논문 목록: 자동으로 천천히 위로 흐르는 무한 스크롤 */
+          .pub-marquee {
+            position: relative;
+            margin-top: 30px;
+            overflow: hidden;
+            /* 스크립트가 실행되기 전에도 높이를 고정해, 목록이 잠깐 길게 펼쳐지는 현상을 막는다 */
+            height: 420px;
+            /* 위/아래 끝을 자연스럽게 흐리게 처리 */
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+          }
 
-          <a href="https://openurl.ebsco.com/EPDB%3Agcd%3A14%3A25864478/detailv2?sid=ebsco%3Aplink%3Acrawler-gcd&id=ebsco%3Agcd%3A195201691&crl=c&jrnl=2158107X&link_origin=scholar.google.com" target="_blank"
-            style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px; text-decoration:none; transition: background 0.2s;"
-            onmouseover="this.style.background='rgba(255,255,255,0.13)'"
-            onmouseout="this.style.background='rgba(255,255,255,0.07)'">
-            <span
-              style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
-            <div>
-              <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Characterizing Operational Drift in Cement Manufacturing Process Data via Self-Supervised Representation Learning</h4>
-              <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Kim, C. — <em>International Journal of Advanced Computer Science and Applications</em></p>
+          .pub-marquee-track {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            will-change: transform;
+            animation: pub-scroll var(--pub-duration, 40s) linear infinite;
+          }
+
+          /* 마우스를 올리면 잠시 멈춤 (논문 제목을 읽을 수 있도록) */
+          .pub-marquee:hover .pub-marquee-track {
+            animation-play-state: paused;
+          }
+
+          @keyframes pub-scroll {
+            from {
+              transform: translateY(0);
+            }
+
+            to {
+              transform: translateY(var(--pub-shift, -50%));
+            }
+          }
+
+          /* 움직임 최소화 설정을 켠 사용자에게는 애니메이션 미적용 */
+          @media (prefers-reduced-motion: reduce) {
+            .pub-marquee-track {
+              animation: none;
+            }
+
+            .pub-marquee {
+              -webkit-mask-image: none;
+              mask-image: none;
+            }
+          }
+        </style>
+
+        <div class="pub-marquee" id="recent-publications-marquee">
+          <div id="recent-publications-list" class="pub-marquee-track">
+            <!-- ▼▼ 아래 목록은 publications.html 의 내용을 그대로 옮겨 둔 것입니다. ▼▼
+                 실제 사이트(GitHub Pages)에서는 페이지가 열릴 때 publications.html 을 다시 읽어
+                 항상 최신 상태로 자동 갱신됩니다. 따라서 논문을 추가할 때는
+                 publications.html 만 수정하면 되고, 이 부분은 건드리지 않아도 됩니다. -->
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Characterizing Operational Drift in Cement Manufacturing Process Data via Self-Supervised Representation Learning</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Kim, C. — <em>International Journal of Advanced Computer Science and Applications</em></p>
+              </div>
             </div>
-          </a>
 
-          <a href="https://www.tandfonline.com/doi/full/10.1080/15366367.2026.2669159" target="_blank"
-            style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px; text-decoration:none; transition: background 0.2s;"
-            onmouseover="this.style.background='rgba(255,255,255,0.13)'"
-            onmouseout="this.style.background='rgba(255,255,255,0.07)'">
-            <span
-              style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
-            <div>
-              <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Development of a Machine Learning–Based VO2max Prediction Framework Integrating Missing Data Imputation and SHAP Interpretation</h4>
-              <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Lee, J. Y. & Kim, C. — <em>Measurement: Interdisciplinary Research and Perspectives</em></p>
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Development of a Machine Learning–Based VO2max Prediction Framework Integrating Missing Data Imputation and SHAP Interpretation</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Lee, J. Y. &amp; Kim, C. — <em>Measurement: Interdisciplinary Research and Perspectives</em></p>
+              </div>
             </div>
-          </a>
 
-          <a href="https://doi.org/10.1177/17479541261441416" target="_blank"
-            style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px; text-decoration:none; transition: background 0.2s;"
-            onmouseover="this.style.background='rgba(255,255,255,0.13)'"
-            onmouseout="this.style.background='rgba(255,255,255,0.07)'">
-            <span
-              style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
-            <div>
-              <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Developing a generative ai–based anti-doping consultation system to enhance coaching practice and athlete decision-making</h4>
-              <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Lee, J. Y., Park, J. H., Oh, D., & Kim, C. — <em>International Journal of Sports Science & Coaching</em></p>
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Developing a generative ai–based anti-doping consultation system to enhance coaching practice and athlete decision-making</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Lee, J. Y., Park, J. H., Oh, D., &amp; Kim, C. — <em>International Journal of Sports Science &amp; Coaching</em></p>
+              </div>
             </div>
-          </a>
 
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">An Integrated 60 GHz Radar and AI-Guided Infrared System for Non-Contact Heart Rate and Body Temperature Monitoring</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Sim, S., &amp; Kim, C. — <em>Applied Sciences.</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Spinal Line Detection for Posture Evaluation Through Training-Free 3D Human Body Reconstruction with 2D Depth Images</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Kim, S., Lee, H. J., Lee, J., Kim, C., &amp; Lee, T. — <em>Applied Sciences, 16(2), 1096.</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">이중 헤드 시간 영역 분해를 활용한 심장-폐음 분리 개선을 위한 합성 혼합물 감독 프레임워크</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">김창균. — <em>한국융합신호처리학회</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">자가 관리 기반 조기 당뇨병 선별용 설명가능한 위험확률모형: 증상 기반 로지스틱 회귀와 앙상블 모형의 예측성능 및 보정능 비교</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">김창균. — <em>한국스포츠사이언스지</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2026</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">노인 신체계측 변수 기반 근감소증 탐지를 위한 유의 변수 탐색 : 머신러닝 접근</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">이지용, &amp; 김창균. — <em>한국스포츠사이언스지</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Development of a Deep Learning Model for Predicting Obesity Using Health Behavior Data of Elementary School Students</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Kim, C., &amp; Lee, J. Y. — <em>Iranian Journal of Public Health</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Interpretable deep multimodal-based tomato disease diagnosis and severity estimation</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Nasir, N., Ramzan, S., Ali, B., Jabbar, S., Raza, A., Kim, C., ... &amp; Fitriyani, N. L. — <em>Scientific Reports</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Tab transformer with meta-ensemble learning approaches for enhanced diabetes prediction</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Khalid, S., Ramzan, S., Iqbal, M. M., Raza, A., Smerat, A., Hosseinzadeh, M., Kim, C., ... &amp; Fitriyani, N. L. — <em>PeerJ Computer Science</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Harnessing interpretable novel combination of GloVe embedding with deep CNN-BiLSTM neural network for fake news detection</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Khalid, S., Ramzan, S., Iqbal, M. M., Thalji, N., Raza, A., Smerat, A., Kim, C., ... &amp; Syafrudin, M. — <em>PLoS One</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Integrating Machine Learning Models With Probability Distribution Methods for Extreme Flood Risk Assessment</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Fatima, N., Alshahrani, H. M., Dafaalla, H., Allafi, R., Kim, C., Syafrudin, M., &amp; Fitriyani, N. L. — <em>IEEE Access</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Development of an AI-Based Model for Identifying Doping Drugs Through Pill Image Analysis</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Lee, J. Y., Park, J. H., &amp; Kim, C. — <em>Journal of Drug Issues</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">VGGBM-Net: A Novel Pixel-Based Transfer Features Engineering for Automated Coffee Bean Diseases Classification</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Hashmi, M. S. A., Qadri, A. M., Raza, A., Ullah, S., Smerat, A., Kim, C., ... &amp; Fitriyani, N. L. — <em>IEEE Access</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2025</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">An Optimized Weighted-Voting-Based Ensemble Learning Approach for Fake News Classification</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Toor, M. S., Shahbaz, H., Yasin, M., Ali, A., Fitriyani, N. L., Kim, C., &amp; Syafrudin, M. — <em>Mathematics</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Attention-Based Hydrogen Refueling Imputation Model for Efficient Hydrogen Refueling Stations</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Ko, K., &amp; Kim, C. — <em>Applied Sciences</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">A Forest Fire Prediction Model Based on Meteorological Factors and the Multi-Model Ensemble Method</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Choi, S., Son, M., Kim, C., &amp; Kim, B. — <em>Forest</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">An Efficient Fusion Network for Fake News Classification</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Alzaidi, M. S. A., Alshammari, A., Hassan, A. Q., Yousafzai, S. N., Thaljaoui, A., Fitriyani, N. L., Kim, C., &amp; Syafrudin, M. — <em>Mathematics</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Proposal of a Cost-Effective and Adaptive Customized Driver Inattention Detection Model Using Time Series Analysis and Computer Vision</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Sim, S., &amp; Kim, C. — <em>World Electric Vehicle Journal</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Development of an Algorithm for Assessing the Scope of Large Forest Fire Using VIIRS-Based Data and Machine Learning</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Son, M. W., Kim, C. G., &amp; Kim, B. S. — <em>Remote Sensing</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">AI-based betting anomaly detection system to ensure fairness in sports and prevent illegal gambling</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Kim, C., Park, J. H., &amp; Lee, J. Y. — <em>Scientific Reports</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">Development of a Non-Contact Sensor System for Converting 2D Images into 3D Body Data: A Deep Learning Approach to Monitor Obesity and Body Shape in Individuals in Their 20s and 30s</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">Lee, J. Y., Kwon, K., Kim, C., &amp; Youm, S. — <em>Sensors</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">헬스케어 분야에서 활용 가능한 AI 기반 체형 3D 모델링 기술 개발</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">이지용, &amp; 김창균. — <em>한국전자통신학회 논문지</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2024</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">버츄얼 유튜버 특성에 대한 탐색적 연구 : 텍스트마이닝을 통한 이용자 반응 분석을 중심으로</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">하진경, &amp; 김창균. — <em>한국콘텐츠학회논문지</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">2023</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">딥러닝을 활용한 세계태권도 남자부 선수들의 경기유형 분류: 트랜스포머 알고리즘 적용</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">윤효준, 김창균, &amp; 전민수. — <em>대한무도학회지</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:#FFD700; color:var(--primary-navy); font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">특허</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">USER TERMINAL AND METHOD FOR PROVIDING BODY SHAPE INFORMATION FOR EACH BODY PART OF USER</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;"><em>출원번호: WO 2023/090601 A1 (해외)</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:#FFD700; color:var(--primary-navy); font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">특허</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">사용자 단말기 및 사용자의 신체 부위 별 체형 정보를 제공하는 방법</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;"><em>출원번호: 10-2021-0159119 (한국)</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:#FFD700; color:var(--primary-navy); font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">특허</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">강화학습 기반 경력자 전문능력 추천 시스템 및 추천 방법</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;"><em>출원번호: 10-2020-0010599 (한국)</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:#FFD700; color:var(--primary-navy); font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">특허</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">과채류 물동량 예측시스템 및 방법</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;"><em>출원번호: 10-2019-0095459 (한국)</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:#FFD700; color:var(--primary-navy); font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">특허</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">3차원 신체 모델 측정 장치 및 방법</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;"><em>출원번호: 10-2018-0151711 (한국)</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:#FFD700; color:var(--primary-navy); font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">특허</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">3차원 신체 모델 생성 장치 및 방법</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;"><em>출원번호: 10-2018-0151706 (한국)</em></p>
+              </div>
+            </div>
+
+            <div
+              style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;"> <span style="background:#FFD700; color:var(--primary-navy); font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">특허</span>
+              <div> 
+                <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">객체 인식을 통해 위급 상황을 판단하는 장치 및 방법</h4>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;"><em>출원번호: 10-2020-0028550 (한국)</em></p>
+              </div>
+            </div>
+
+          </div>
         </div>
         <div style="text-align:center; margin-top:36px;">
           <a href="publications.html"
@@ -448,105 +749,160 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      renderRecentPublications();
+    });
+
+    /**
+     * publications.html 을 읽어와, 그 안의 논문·특허 전체를 메인 화면 목록으로 새로 그린다.
+     *
+     * 위쪽 HTML 에 이미 전체 목록이 적혀 있으므로 화면에는 항상 모든 논문이 보이고,
+     * 이 함수는 그 목록을 publications.html 의 최신 내용으로 덮어쓰는 역할만 한다.
+     * 따라서 논문을 추가할 때는 publications.html 만 수정하면 된다.
+     */
+    function renderRecentPublications() {
       fetch("publications.html")
         .then(response => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch publications.html");
-          }
+          if (!response.ok) throw new Error("Failed to fetch publications.html");
           return response.text();
         })
         .then(htmlText => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(htmlText, "text/html");
-          
-          // SCI(E)와 KCI 섹션에서 논문 목록 추출
-          const scieItems = Array.from(doc.querySelectorAll("#scie .pub-item"));
-          const kciItems = Array.from(doc.querySelectorAll("#kci .pub-item"));
-          
+          const doc = new DOMParser().parseFromString(htmlText, "text/html");
+
+          // publications.html 의 세 섹션(SCI(E)/SCOPUS, KCI, 특허) 전체를 가져온다
+          const sources = [
+            { selector: "#scie .pub-item", category: "scie", rank: 0, badge: null },
+            { selector: "#kci .pub-item", category: "kci", rank: 1, badge: null },
+            { selector: "#patents .pub-item", category: "patents", rank: 2, badge: "특허" }
+          ];
+
           const allItems = [];
-          
-          scieItems.forEach((item, index) => {
-            const yearText = item.querySelector(".pub-year")?.textContent || "0";
-            allItems.push({
-              element: item,
-              category: "scie",
-              originalIndex: index,
-              year: parseInt(yearText.trim(), 10) || 0
+          sources.forEach(src => {
+            Array.from(doc.querySelectorAll(src.selector)).forEach((el, index) => {
+              const yearText = el.querySelector(".pub-year")?.textContent.trim() || "";
+              allItems.push({
+                element: el,
+                category: src.category,
+                rank: src.rank,
+                badge: src.badge,
+                originalIndex: index,
+                year: parseInt(yearText, 10) || 0
+              });
             });
           });
-          
-          kciItems.forEach((item, index) => {
-            const yearText = item.querySelector(".pub-year")?.textContent || "0";
-            allItems.push({
-              element: item,
-              category: "kci",
-              originalIndex: index,
-              year: parseInt(yearText.trim(), 10) || 0
-            });
-          });
-          
-          // 정렬 규칙: 
-          // 1. 연도 내림차순 (최신 연도 우선)
-          // 2. 카테고리 우선순위 (scie 우선)
-          // 3. 각 카테고리 내 등장 순서 (위에 있는 논문이 최신이므로 originalIndex 오름차순)
+
+          // 정렬 규칙:
+          // 1. 연도가 있는 항목이 먼저 (연도 표기가 없는 특허는 맨 뒤로)
+          // 2. 연도 내림차순 (최신 연도 우선)
+          // 3. 같은 연도면 SCI(E) → KCI → 특허 순
+          // 4. 각 섹션 내 등장 순서 (위에 있는 논문이 최신)
           allItems.sort((a, b) => {
-            if (b.year !== a.year) {
-              return b.year - a.year;
-            }
-            if (a.category !== b.category) {
-              return a.category === "scie" ? -1 : 1;
-            }
+            const aHasYear = a.year > 0;
+            const bHasYear = b.year > 0;
+            if (aHasYear !== bHasYear) return aHasYear ? -1 : 1;
+            if (b.year !== a.year) return b.year - a.year;
+            if (a.rank !== b.rank) return a.rank - b.rank;
             return a.originalIndex - b.originalIndex;
           });
-          
-          // 상위 3개 추출
-          const recentItems = allItems.slice(0, 3);
-          
-          if (recentItems.length > 0) {
-            const container = document.getElementById("recent-publications-list");
-            container.innerHTML = "";
-            
-            recentItems.forEach(itemObj => {
-              const item = itemObj.element;
-              const href = item.getAttribute("href") || "#";
-              const year = itemObj.year || new Date().getFullYear();
-              const title = item.querySelector(".pub-title")?.textContent.replace(/\s+/g, ' ').trim() || "";
-              const authors = item.querySelector(".pub-authors")?.textContent.trim() || "";
-              
-              // pub-venue 정보 가공 (아이콘 제거 후 텍스트만 추출)
-              const venueEl = item.querySelector(".pub-venue");
-              let venueText = "";
-              if (venueEl) {
-                const tempDiv = document.createElement("div");
-                tempDiv.innerHTML = venueEl.innerHTML;
-                const icon = tempDiv.querySelector(".material-symbols-outlined");
-                if (icon) {
-                  icon.remove();
-                }
-                venueText = tempDiv.textContent.replace(/\s+/g, ' ').trim();
-              }
-              
-              const articleHtml = `
-                <a href="${href}" target="_blank"
-                  style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px; text-decoration:none; transition: background 0.2s;"
-                  onmouseover="this.style.background='rgba(255,255,255,0.13)'"
-                  onmouseout="this.style.background='rgba(255,255,255,0.07)'">
-                  <span
-                    style="background:var(--accent-blue); color:#fff; font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">${year}</span>
-                  <div>
-                    <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">${title}</h4>
-                    <p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">${authors} — <em>${venueText}</em></p>
-                  </div>
-                </a>
-              `;
-              container.insertAdjacentHTML("beforeend", articleHtml);
-            });
-          }
+
+          if (allItems.length === 0) return;
+
+          const container = document.getElementById("recent-publications-list");
+          container.innerHTML = "";
+
+          allItems.forEach(entry => {
+            const el = entry.element;
+            const title = el.querySelector(".pub-title")?.textContent.replace(/\s+/g, " ").trim() || "";
+            const authors = el.querySelector(".pub-authors")?.textContent.replace(/\s+/g, " ").trim() || "";
+
+            // 게재지 정보 가공 (앞의 아이콘 글자를 지우고 텍스트만 추출)
+            const venueEl = el.querySelector(".pub-venue");
+            let venue = "";
+            if (venueEl) {
+              const tmp = document.createElement("div");
+              tmp.innerHTML = venueEl.innerHTML;
+              tmp.querySelector(".material-symbols-outlined")?.remove();
+              venue = tmp.textContent.replace(/\s+/g, " ").trim();
+            }
+
+            // 연도가 있으면 연도 배지, 없으면 카테고리 배지(특허는 금색)
+            const badgeText = entry.year > 0 ? String(entry.year) : (entry.badge || "");
+            const badgeColor = entry.category === "patents"
+              ? "background:#FFD700; color:var(--primary-navy);"
+              : "background:var(--accent-blue); color:#fff;";
+
+            // 저자 / 게재지 줄 (특허처럼 저자가 비어 있으면 게재지만 표시)
+            const metaHtml = [
+              authors ? escapeHtml(authors) : "",
+              venue ? "<em>" + escapeHtml(venue) + "</em>" : ""
+            ].filter(Boolean).join(" — ");
+
+            // 클릭되지 않는 정보 표시용 항목 (논문 사이트로 이동하지 않음)
+            const articleHtml = `
+              <div
+                style="display:flex; align-items:flex-start; gap:20px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:20px 24px;">
+                <span
+                  style="${badgeColor} font-weight:800; font-size:0.85rem; border-radius:6px; padding:4px 10px; white-space:nowrap; margin-top:3px;">${escapeHtml(badgeText)}</span>
+                <div>
+                  <h4 style="color:#fff; font-size:1.05rem; margin:0 0 6px 0; font-weight:700;">${escapeHtml(title)}</h4>
+                  ${metaHtml ? `<p style="color:rgba(255,255,255,0.6); font-size:0.88rem; margin:0;">${metaHtml}</p>` : ""}
+                </div>
+              </div>
+            `;
+            container.insertAdjacentHTML("beforeend", articleHtml);
+          });
         })
         .catch(error => {
-          console.warn("Could not auto-update recent publications: ", error);
+          // 파일을 웹서버가 아닌 곳(file://)에서 직접 열면 브라우저가 읽기를 막는다.
+          // 이때는 위쪽 HTML 에 적어둔 전체 목록이 그대로 표시되므로 화면상 문제는 없다.
+          console.warn("publications.html 을 읽지 못해 HTML 에 저장된 목록을 사용합니다.", error);
+        })
+        .finally(() => {
+          // 목록이 확정된 뒤 자동 스크롤(마퀴) 시작
+          initPubMarquee();
         });
-    });
+    }
+
+    /** 텍스트를 HTML에 안전하게 넣기 위한 이스케이프 (제목에 &, < 등이 있어도 깨지지 않도록) */
+    function escapeHtml(str) {
+      return String(str == null ? "" : str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    /**
+     * 최근 논문 목록을 위로 천천히 흐르게 만드는 함수.
+     * 목록을 한 벌 복제해 이어 붙인 뒤, 한 벌 높이만큼 이동시키고 반복하여
+     * 끊김 없이 순환하는 것처럼 보이게 한다.
+     */
+    function initPubMarquee() {
+      const wrap = document.getElementById("recent-publications-marquee");
+      const track = document.getElementById("recent-publications-list");
+      if (!wrap || !track || track.dataset.marqueeReady === "1") return;
+
+      const originals = Array.from(track.children);
+      if (originals.length === 0) return;
+
+      // 목록을 한 벌 더 복제 (읽기용이 아니므로 보조기기·키보드 탐색에서는 제외)
+      originals.forEach(node => {
+        const clone = node.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.setAttribute("tabindex", "-1");
+        track.appendChild(clone);
+      });
+
+      const gap = 16;                                   // .pub-marquee-track 의 gap 과 동일
+      const shift = (track.scrollHeight + gap) / 2;     // 한 벌 높이 + 이음새 간격
+      const copyHeight = shift - gap;                   // 한 벌 자체의 높이
+      const speed = 20;                                 // 초당 이동 픽셀 (작을수록 느림)
+
+      // 보이는 영역은 최대 420px (한 벌보다 커지면 빈 공간이 생기므로 제한)
+      wrap.style.height = Math.min(420, copyHeight) + "px";
+      track.style.setProperty("--pub-shift", "-" + shift + "px");
+      track.style.setProperty("--pub-duration", (shift / speed).toFixed(1) + "s");
+      track.dataset.marqueeReady = "1";
+    }
   </script>
 </body>
 
