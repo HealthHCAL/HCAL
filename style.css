@@ -25,9 +25,16 @@ body {
 
 .container {
   max-width: 1800px;
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
 }
 
 /* Header Styles */
@@ -41,6 +48,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 16px;
 }
 
 .brand {
@@ -72,32 +80,40 @@ body {
 .top-links {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
 .top-badge {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: var(--bg-gray);
-  color: var(--text-dark);
+  gap: 5px;
+  background: transparent;
+  color: var(--text-muted);
   text-decoration: none;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  padding: 0 14px;
+  border-radius: 0;
+  font-size: 0.72rem;
   font-weight: 600;
-  transition: all 0.2s ease;
-  border: 1px solid var(--border-color);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: none;
+  border-right: 1px solid var(--border-color);
+  transition: color 0.2s ease;
+}
+
+.top-links a:last-child {
+  padding-right: 0;
+  border-right: none;
 }
 
 .top-badge:hover {
-  background: var(--primary-navy);
-  color: white;
-  border-color: var(--primary-navy);
+  background: transparent;
+  color: var(--primary-navy);
 }
 
 .top-badge .material-symbols-outlined {
   font-size: 14px;
+  color: var(--accent-blue);
+  opacity: 0.8;
 }
 
 .nav {
@@ -113,8 +129,8 @@ body {
 .nav-inner a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  padding: 12px 0;
-  font-size: 0.85rem;
+  padding: 14px 0;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -524,6 +540,14 @@ body {
 .footer {
   padding: 60px 0;
   border-top: 1px solid var(--border-color);
+}
+
+.footer-icon {
+  font-size: 14px;
+  vertical-align: -2px;
+  color: var(--accent-blue);
+  opacity: 0.7;
+  margin-right: 2px;
 }
 
 .footer-inner {
