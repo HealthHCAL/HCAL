@@ -194,7 +194,6 @@
     </script>
 
     <section class="section container">
-      <span class="area-label">Research</span>
       <h3 class="area-title">RESEARCH AREAS</h3>
       <div class="grid-2" style="margin-top: 30px;">
 
@@ -231,7 +230,6 @@
 
     <section class="section section-dark">
       <div class="container">
-        <span class="area-label">Publications</span>
         <h3 class="area-title">RECENT PUBLICATIONS</h3>
         <style>
           /* 최근 논문 목록: 자동으로 천천히 위로 흐르는 무한 스크롤 */
@@ -566,7 +564,6 @@
     </section>
 
     <section class="section container">
-      <span class="area-label">Research Interests</span>
       <h3 class="area-title">RESEARCH INTERESTS</h3>
       <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 48px; max-width: 100%;">
         우리 연구실이 집중하고 있는 핵심 연구 관심 분야입니다.</p>
@@ -613,13 +610,20 @@
         }
 
         .interest-icon {
-          width: 72px;
-          height: 72px;
-          border-radius: 50%;
+          width: 64px;
+          height: 64px;
+          border-radius: 12px;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 2rem;
+          background: var(--bg-gray);
+          border: 1px solid var(--border-color);
+        }
+
+        .interest-icon .material-symbols-outlined {
+          font-size: 1.9rem;
+          color: var(--accent-blue);
         }
 
         .interest-card h4 {
@@ -647,10 +651,15 @@
         }
 
         .interest-tags span {
-          font-size: 0.75rem;
+          font-size: 0.68rem;
           padding: 3px 10px;
-          border-radius: 20px;
+          border-radius: 4px;
           font-weight: 600;
+          letter-spacing: 0.03em;
+          text-transform: uppercase;
+          background: var(--bg-gray);
+          color: var(--text-muted);
+          border: 1px solid var(--border-color);
         }
       </style>
 
@@ -658,54 +667,54 @@
 
         <!-- 헬스케어 -->
         <a href="research.html" class="interest-card">
-          <div class="interest-icon" style="background: #e8f4fd;">
-            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#1565C0;">monitor_heart</span>
+          <div class="interest-icon">
+            <span class="material-symbols-outlined">monitor_heart</span>
           </div>
           <h4>헬스케어 AI</h4>
           <p>멀티모달 데이터 기반 신체 분석, 보행 이상 감지, 건강 모니터링 시스템 연구</p>
           <div class="interest-tags">
-            <span style="background:#e8f4fd; color:#1565C0;">Multimodal</span>
-            <span style="background:#e8f4fd; color:#1565C0;">Healthcare</span>
+            <span>Multimodal</span>
+            <span>Healthcare</span>
           </div>
         </a>
 
         <!-- LLM -->
         <a href="research.html" class="interest-card">
-          <div class="interest-icon" style="background: #f3e5f5;">
-            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#7B1FA2;">smart_toy</span>
+          <div class="interest-icon">
+            <span class="material-symbols-outlined">smart_toy</span>
           </div>
           <h4>LLM 응용 연구</h4>
           <p>음성·텍스트 기반 비정형 입력 처리, 맞춤형 분류·요약, 지능형 추천 시스템 연구</p>
           <div class="interest-tags">
-            <span style="background:#f3e5f5; color:#7B1FA2;">LLM</span>
-            <span style="background:#f3e5f5; color:#7B1FA2;">STT</span>
-            <span style="background:#f3e5f5; color:#7B1FA2;">Vector DB</span>
+            <span>LLM</span>
+            <span>STT</span>
+            <span>Vector DB</span>
           </div>
         </a>
 
         <!-- 인공지능 모델 -->
         <a href="research.html" class="interest-card">
-          <div class="interest-icon" style="background: #fff8e1;">
-            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#F57F17;">psychology</span>
+          <div class="interest-icon">
+            <span class="material-symbols-outlined">psychology</span>
           </div>
           <h4>인공지능 모델</h4>
           <p>Transformer, Diffusion Model, Deep Learning 등 최신 AI 모델 연구 및 응용</p>
           <div class="interest-tags">
-            <span style="background:#fff8e1; color:#F57F17;">Transformer</span>
-            <span style="background:#fff8e1; color:#F57F17;">Diffusion</span>
+            <span>Transformer</span>
+            <span>Diffusion</span>
           </div>
         </a>
 
         <!-- 데이터 분석 -->
         <a href="research.html" class="interest-card">
-          <div class="interest-icon" style="background: #e8f5e9;">
-            <span class="material-symbols-outlined" style="font-size:2.2rem; color:#2E7D32;">bar_chart</span>
+          <div class="interest-icon">
+            <span class="material-symbols-outlined">bar_chart</span>
           </div>
           <h4>데이터 분석</h4>
           <p>공정 데이터, 스포츠 데이터, 환경 데이터 등 대규모 데이터 기반 패턴 분석 및 예측 모델 개발</p>
           <div class="interest-tags">
-            <span style="background:#e8f5e9; color:#2E7D32;">빅데이터</span>
-            <span style="background:#e8f5e9; color:#2E7D32;">예측 모델</span>
+            <span>빅데이터</span>
+            <span>예측 모델</span>
           </div>
         </a>
 
@@ -732,9 +741,8 @@
         <div style="color:rgba(0, 0, 0, 1); font-size:0.82rem; line-height:1.9;">
           <p style="margin:0 0 14px; font-weight:700; font-size:0.9rem; color:#000000; letter-spacing:0.5px;">
             Human-Centered AI Lab</p>
-          <p style="margin:0 0 4px;">📍 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
-          <p style="margin:0 0 14px;">📞 Tel : 033-570-6587 &nbsp;|&nbsp; ✉️
-            tiockdrbs@kangwon.ac.kr</p>
+          <p style="margin:0 0 4px;"><span class="material-symbols-outlined footer-icon">location_on</span> 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
+          <p style="margin:0 0 14px;"><span class="material-symbols-outlined footer-icon">call</span> Tel : 033-570-6587 &nbsp;|&nbsp; <span class="material-symbols-outlined footer-icon">mail</span> tiockdrbs@kangwon.ac.kr</p>
         </div>
 
 

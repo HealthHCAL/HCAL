@@ -132,6 +132,39 @@
       <!-- ▶ 뉴스는 최신순(위 → 아래)으로 정렬되어 있습니다. 새 소식은 이 아래 첫 번째 카드로 추가해 주세요. -->
 
       <!-- ============================================================
+           ▶ 2026년 9월 : 강원대학교 2026학년도 자체특성화사업 선정
+             사진을 넣으실 때는 photo 폴더에 파일을 넣고 아래 <img ...> 주석을 풀어
+             src= 파일명을 적은 뒤, 그 아래 회색 안내 상자 <div>는 지워주세요.
+           ============================================================ -->
+      <article class="photo-card"
+        style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid var(--border-color);">
+        <!-- 뉴스 목록의 썸네일 이미지입니다. src= 부분에 사진 파일명을 적어주세요. -->
+        <div style="width: 100%; height: 220px; flex-shrink: 0; overflow: hidden; border-radius: 8px;">
+          <!-- <img src="photo/N6.jpg" alt="News Image"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;"> -->
+          <!-- ↓ 사진을 넣기 전까지 보이는 이미지 아이콘입니다. 사진을 넣으면 이 <div>는 지워주세요. -->
+          <div
+            style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--bg-gray, #f4f6f8);">
+            <span class="material-symbols-outlined"
+              style="font-size: 64px; color: #c3cad4; user-select: none;">image</span>
+          </div>
+        </div>
+        <div>
+          <time style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 600;">September, 2026</time>
+          <h4 style="font-size: 1.4rem; margin: 10px 0;">2026학년도 자체특성화사업 선정 — 「지역 밀착 고령친화 AI 실증 인재양성 사업단」</h4>
+          <p class="news-text">강원대학교 2026학년도 자체특성화사업 전략특성화 분야에 「지역 밀착 고령친화 AI 실증 인재양성 사업단」이 최종 선정되었습니다.
+            본 사업단은 사업단장 김창균 교수를 중심으로 2026년 9월부터 2028년 2월까지 2년간 사업을 운영하게 되었습니다. 본 연구실은 인간 중심 인공지능 연구를 기반으로 실제 데이터를 수집하며,
+            수집된 데이터의 기반으로 고령친화 AI기술 개발을 통해
+            고령화가 빠르게 진행되는 지역사회의 실제 수요에 밀착하여 고령친화 AI 기술을 현장에서 실증하고,
+            이를 이끌어갈 융합형 인재를 양성하는 것을 목표로 합니다.</p>
+          <a href="#"
+            onclick="this.previousElementSibling.classList.toggle('expanded'); this.innerText = this.previousElementSibling.classList.contains('expanded') ? 'Show Less ←' : 'Read More →'; return false;"
+            style="text-decoration: none; font-weight: 700; color: var(--primary-navy); display: block; margin-top: 15px;">Read
+            More →</a>
+        </div>
+      </article>
+
+      <!-- ============================================================
            ▶ 2026년 8월 : IJCAI-ECAI 2026 (독일 브레멘) 참가
              사진을 넣으실 때는 photo 폴더에 파일을 넣고 아래 <img ...> 주석을 풀어
              src= 파일명을 적은 뒤, 그 아래 회색 안내 상자 <div>는 지워주세요.
@@ -170,11 +203,14 @@
         style="display: flex; flex-direction: column; gap: 20px; padding: 20px; border: 1px solid var(--border-color);">
         <!-- 뉴스 목록의 썸네일 이미지입니다. src= 부분에 사진 파일명을 적어주세요. -->
         <div style="width: 100%; height: 220px; flex-shrink: 0; overflow: hidden; border-radius: 8px;">
-          <!-- <img src="photo/N6.jpg" alt="News Image"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;"> -->
-          <!-- ↓ 사진을 넣기 전까지 보이는 이미지 아이콘입니다. 사진을 넣으면 이 <div>는 지워주세요. -->
+          <!-- 사진 파일을 photo 폴더에 N6.jpg 이름으로 넣으면 바로 표시됩니다.
+               다른 파일명을 쓰시려면 아래 src= 부분만 바꿔주세요. -->
+          <img src="photo/N6.jpg" alt="News Image"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <!-- ↓ 사진 파일이 없을 때만 보이는 이미지 아이콘입니다. -->
           <div
-            style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--bg-gray, #f4f6f8);">
+            style="width: 100%; height: 100%; display: none; align-items: center; justify-content: center; background: var(--bg-gray, #f4f6f8);">
             <span class="material-symbols-outlined"
               style="font-size: 64px; color: #c3cad4; user-select: none;">image</span>
           </div>
@@ -365,9 +401,10 @@
         <div style="color:rgba(0, 0, 0, 1); font-size:0.82rem; line-height:1.9;">
           <p style="margin:0 0 14px; font-weight:700; font-size:0.9rem; color:#000000; letter-spacing:0.5px;">
             Human-Centered AI Lab</p>
-          <p style="margin:0 0 4px;">📍 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
-          <p style="margin:0 0 14px;">📞 Tel : 033-570-6587 &nbsp;|&nbsp; ✉️
-            tiockdrbs@kangwon.ac.kr</p>
+          <p style="margin:0 0 4px;"><span class="material-symbols-outlined footer-icon">location_on</span> 강원도 삼척시 중앙로
+            346, (교동, 강원대학교) 제5공학관 408호</p>
+          <p style="margin:0 0 14px;"><span class="material-symbols-outlined footer-icon">call</span> Tel : 033-570-6587
+            &nbsp;|&nbsp; <span class="material-symbols-outlined footer-icon">mail</span> tiockdrbs@kangwon.ac.kr</p>
         </div>
 
 
