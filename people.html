@@ -245,6 +245,26 @@
           <h4 style="font-size: 1.1rem; margin-bottom: 5px;">이은석</h4>
           <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
         </div>
+
+        <!-- 김유정 -->
+        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
+          <div class="cursor-pointer"
+            style="background: #f0f0f0; height: 200px; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
+            onclick="openModal('modal_student_yujeong')"
+            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
+            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
+            <!-- 김유정 사진입니다. photo 폴더에 Yu.jpg 파일을 넣어주세요 -->
+            <img src="photo/U.png" alt="김유정" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="hover-overlay"
+              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
+              <span class="material-symbols-outlined"
+                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
+              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
+            </div>
+          </div>
+          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">김유정</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Undergraduate Researcher</p>
+        </div>
       </div>
     </section>
   </main>
@@ -267,8 +287,10 @@
         <div style="color:rgba(0, 0, 0, 1); font-size:0.82rem; line-height:1.9;">
           <p style="margin:0 0 14px; font-weight:700; font-size:0.9rem; color:#000000; letter-spacing:0.5px;">
             Human-Centered AI Lab</p>
-          <p style="margin:0 0 4px;"><span class="material-symbols-outlined footer-icon">location_on</span> 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
-          <p style="margin:0 0 14px;"><span class="material-symbols-outlined footer-icon">call</span> Tel : 033-570-6587 &nbsp;|&nbsp; <span class="material-symbols-outlined footer-icon">mail</span> tiockdrbs@kangwon.ac.kr</p>
+          <p style="margin:0 0 4px;"><span class="material-symbols-outlined footer-icon">location_on</span> 강원도 삼척시 중앙로
+            346, (교동, 강원대학교) 제5공학관 408호</p>
+          <p style="margin:0 0 14px;"><span class="material-symbols-outlined footer-icon">call</span> Tel : 033-570-6587
+            &nbsp;|&nbsp; <span class="material-symbols-outlined footer-icon">mail</span> tiockdrbs@kangwon.ac.kr</p>
         </div>
 
 
@@ -422,6 +444,23 @@
           </ul>
           <h4>Contact</h4>
           <p>Email: silsto0043@gmail.com</p>
+        </div>
+      </div>`
+      },
+      'modal_student_yujeong': {
+        title: '김유정 (Undergraduate Researcher)',
+        content: `<div style="display: flex; gap: 30px; align-items: start; flex-wrap: wrap;">
+        <img src="photo/Yu.jpg" alt="Profile" style="width: 200px; height: 250px; object-fit: cover; border-radius: 8px; flex-shrink: 0; max-width: 100%; border: 1px solid #ddd;">
+        <div style="flex: 1; min-width: 250px;">
+          <h4 style="margin-top: 0;">Research Interests</h4>
+          <p>-</p>
+          <h4>Recent Publications</h4>
+          <ul style="margin-left: 20px;">
+            <li>-</li>
+          </ul>
+          <h4>Contact</h4>
+          <p>Email: xixxuxeoxx@kangwon.ac.kr</p>
+          <p>Tel: 010-2900-8971</p>
         </div>
       </div>`
       },
