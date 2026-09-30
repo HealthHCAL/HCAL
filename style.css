@@ -37,6 +37,14 @@ body {
   }
 }
 
+/* 아이콘 폰트가 늦게 도착해도 'chevron_left' 같은 아이콘 이름 글자가 옆으로 넘치지 않도록 한 글자 폭으로 고정 */
+.material-symbols-outlined {
+  display: inline-block;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 /* Header Styles */
 .topbar {
   background: var(--bg-light);
@@ -139,6 +147,16 @@ body {
   border-bottom: 3px solid white;
 }
 
+/* 좁은 화면: 상단 링크는 줄바꿈, 메뉴는 가로로 밀어서 보도록 해 페이지 전체가 옆으로 넓어지지 않게 함 */
+@media (max-width: 768px) {
+  .topbar-main { flex-wrap: wrap; row-gap: 8px; }
+  .brand-logo { height: 60px; }
+  .top-links { flex-wrap: wrap; row-gap: 6px; }
+  .top-badge:first-child { padding-left: 0; }
+  .nav-inner { gap: 20px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .nav-inner a { flex-shrink: 0; }
+}
+
 /* Hero Section - Slider Style */
 .hero {
   position: relative;
@@ -219,8 +237,11 @@ body {
   grid-template-columns: 1.5fr 1fr; /* 텍스트 비중을 늘림 */
   gap: 60px;
   align-items: center;
-  padding: 0 8%;
-  width: 100%;
+  /* 본문(.container)과 같은 폭·여백으로 맞춰, 넓은 화면에서도 텍스트가 본문과 같은 선에서 시작하도록 함 */
+  max-width: 1800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 40px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.6s ease-in-out;
@@ -312,6 +333,7 @@ body {
 }
 
 @media (max-width: 600px) {
+  .hero-content { width: 100%; padding: 0 20px; }
   .hero h2 { font-size: 2rem; }
   .hero-center-spline { height: 300px; }
   .hero-panel { padding: 20px; }
@@ -347,7 +369,9 @@ body {
 
 /* Area Sections */
 .section {
-  padding: 80px 0;
+  /* 좌우 여백은 건드리지 않아야 .section.container 가 헤더·히어로와 같은 선에서 시작함 */
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .area-label {
