@@ -682,3 +682,18 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+/* 페이지 전체 사진 배경 (People 페이지): 흑백 사진을 본문 뒤에 흐릿하게 고정해서 깔아 둠
+   background-attachment: fixed 는 모바일 사파리에서 동작하지 않아 고정 위치 가상 요소로 구현 */
+.page-bg-photo::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.86)),
+    var(--page-bg-image) center / cover no-repeat;
+}
+
+.page-bg-photo {
+  background: transparent;
+}
