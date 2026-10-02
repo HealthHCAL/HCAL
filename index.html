@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap"
+  <!-- 아이콘 폰트는 사용하는 아이콘만 받도록 icon_names 로 제한되어 있습니다.
+       새 아이콘을 쓰려면 아래 icon_names 에 이름을 알파벳 순서에 맞춰 추가하세요. -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,archive,article,bar_chart,calendar_today,call,chevron_left,chevron_right,cloud,computer,expand_more,forum,groups,handshake,hub,image,lightbulb,location_on,mail,menu_book,monitor_heart,psychology,restaurant,school,search,smart_toy&display=block"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +20,7 @@
   <header class="topbar">
     <div class="container topbar-main">
       <a href="index.html" class="brand" style="text-decoration: none;">
-        <img src="photo/logo.png" alt="HCAI Logo" class="brand-logo">
+        <img src="photo/logo.webp" width="440" height="180" alt="HCAI Logo" class="brand-logo">
         <div>
           <h1>Human-Centered AI Lab</h1>
           <p>INNOVATIVE HUMAN-CENTERED AI FOR THE FUTURE</p>
@@ -55,14 +57,19 @@
   <main>
     <section class="hero">
       <div class="hero-slider">
+        <!-- poster: 영상이 도착하기 전까지 보여줄 첫 프레임 이미지
+             preload="none": 2·3번 영상은 해당 슬라이드 차례가 가까워질 때 받기 시작함 (첫 화면 로딩 속도 확보) -->
         <div class="hero-slide active">
-          <video class="hero-video" src="photo/hero1_1.mp4" autoplay loop muted playsinline></video>
+          <video class="hero-video" src="photo/hero1-web.mp4" poster="photo/hero1-poster.webp"
+            autoplay loop muted playsinline preload="auto"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" src="photo/hero2.mp4" loop muted playsinline></video>
+          <video class="hero-video" src="photo/hero2-web.mp4" poster="photo/hero2-poster.webp"
+            loop muted playsinline preload="none"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" src="photo/hero3.mp4" loop muted playsinline></video>
+          <video class="hero-video" src="photo/hero3-web.mp4" poster="photo/hero3-poster.webp"
+            loop muted playsinline preload="none"></video>
         </div>
       </div>
 
@@ -163,7 +170,32 @@
         if (nextVideo) {
           nextVideo.currentTime = 0;
           nextVideo.play().catch(err => console.log('Video play failed:', err));
+          preloadFollowingVideo(nextVideo);
         }
+      }
+
+      // 지금 영상을 끝까지 다 받은 뒤에 다음 슬라이드 영상을 미리 받기 시작한다
+      // (동시에 받으면 느린 회선에서 서로 대역폭을 나눠 써서 지금 영상이 늦게 뜬다)
+      let preloadWatch = null;
+      function preloadFollowingVideo(video) {
+        // 슬라이드가 바뀌면 이전 영상에 걸어둔 감시는 버린다
+        // (늦게 다 받아진 이전 영상이, 지금 보고 있는 영상과 경쟁할 다음 영상을 깨우지 않도록)
+        if (preloadWatch) preloadWatch.abort();
+        preloadWatch = new AbortController();
+        const watch = preloadWatch;
+
+        const isFullyBuffered = () => video.buffered.length > 0 && video.duration > 0 &&
+          video.buffered.end(video.buffered.length - 1) >= video.duration - 0.5;
+        const check = () => {
+          if (video !== slides[currentSlide].querySelector('video')) return watch.abort();
+          if (!isFullyBuffered()) return;
+          watch.abort();
+          const following = slides[(currentSlide + 1) % slides.length].querySelector('video');
+          if (following && following.preload === 'none') following.preload = 'auto';
+        };
+        video.addEventListener('progress', check, { signal: watch.signal });
+        video.addEventListener('suspend', check, { signal: watch.signal }); // 다운로드가 끝나 멈췄을 때
+        check();
       }
 
       function changeSlide(direction) {
@@ -183,6 +215,7 @@
       }
 
       // 초기 실행
+      preloadFollowingVideo(slides[0].querySelector('video'));
       startAutoSlide();
 
       // 수동 조작을 위한 키보드 숫자키 연동
@@ -199,7 +232,7 @@
 
         <article class="photo-card">
           <!-- [연구 이미지 1] src= 부분에 사진 파일명을 입력해주세요 (예: research_img1.jpg) -->
-          <img src="photo/research_img1.png" alt="멀티모달 AI 기반 디지털 헬스케어" class="card-img"
+          <img src="photo/research_img1.webp" width="1536" height="1024" loading="lazy" alt="멀티모달 AI 기반 디지털 헬스케어" class="card-img"
             style="width:100%; height:220px; object-fit:cover; background:#f0f2f5; display:block;">
           <div class="card-content">
             <div class="card-tags"><span class="tag">Multimodal AI</span><span class="tag">Healthcare</span></div>
@@ -213,7 +246,7 @@
 
         <article class="photo-card">
           <!-- [연구 이미지 2] src= 부분에 사진 파일명을 입력해주세요 (예: research_img2.jpg) -->
-          <img src="photo/research_img2.png" alt="Research Image 2" class="card-img"
+          <img src="photo/research_img2.webp" width="1536" height="1024" loading="lazy" alt="Research Image 2" class="card-img"
             style="width:100%; height:220px; object-fit:cover; background:#f0f2f5; display:block;">
           <div class="card-content">
             <div class="card-tags"><span class="tag">mmWave</span><span class="tag">LLM</span></div>
