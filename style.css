@@ -601,8 +601,14 @@ body {
 .dot { width: 8px; height: 8px; background: #34A853; border-radius: 50%; }
 
 @media (max-width: 768px) {
+  /* 인라인 style로 고정폭(예: 300px 1fr)이 지정된 2단 카드까지 확실히 1단으로 쌓음 */
   .hero-inner, .grid-2, .dark-grid, .area-03-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+  }
+  /* 푸터 3단(로고·연락처) 그리드를 모바일에서 1단으로 쌓아 가로 넘침 방지 */
+  .footer .container > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 }
 
