@@ -836,20 +836,33 @@ body {
   cursor: pointer;
 }
 
-/* 페이지 전체 사진 배경 (People 페이지): 흑백 사진을 본문 뒤에 흐릿하게 고정해서 깔아 둠
-   background-attachment: fixed 는 모바일 사파리에서 동작하지 않아 고정 위치 가상 요소로 구현 */
-.page-bg-photo::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  /* 흑백 사진 위에 사이트 남색 기운이 살짝 도는 밝은 막을 덮어, 인물 사진·카드와 겹쳐도 배경이 튀지 않게 함 */
-  background: linear-gradient(rgba(243, 246, 250, 0.93), rgba(243, 246, 250, 0.93)),
-    var(--page-bg-image) center / cover no-repeat;
+/* 페이지 상단 커버 사진 (People 페이지)
+   단체 사진을 페이지 맨 위에 표지처럼 보여 주고, 아래로 갈수록 따뜻한 미색 바탕(#F9F6EF)으로 사라지게 함.
+   사진: photo/people-bg-warm.webp (흑백 원본 people-bg.webp 를 크림색 듀오톤 + 은은한 빛 번짐으로 보정, 대비·선명도 +5%) */
+.page-bg-photo {
+  position: relative;
+  background: #F9F6EF;
 }
 
-.page-bg-photo {
-  background: transparent;
+.page-bg-photo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1060px;
+  z-index: -1;
+  background:
+    /* 아래로 갈수록 바탕색으로 사라짐 */
+    linear-gradient(180deg, rgba(249, 246, 239, 0) 25%, rgba(249, 246, 239, 0.55) 58%, rgba(249, 246, 239, 0.92) 78%, #F9F6EF 100%),
+    /* 왼쪽(제목 쪽)은 조금 더 밝게, 오른쪽 끝도 살짝 */
+    linear-gradient(90deg, rgba(249, 246, 239, 0.55) 0%, rgba(249, 246, 239, 0) 35%, rgba(249, 246, 239, 0) 70%, rgba(249, 246, 239, 0.35) 100%),
+    var(--page-bg-image) center 42% / cover no-repeat;
+}
+
+/* 모바일: 헤더가 두 줄이라 더 길어서, 사진 띠를 늘려 얼굴이 헤더 아래로 내려오게 함 */
+@media (max-width: 768px) {
+  .page-bg-photo::before { height: 900px; }
 }
 
 /* 한 줄 최대 4개 카드 그리드 (People 학부생 섹션)

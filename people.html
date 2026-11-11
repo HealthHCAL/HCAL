@@ -16,10 +16,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call,location_on,mail&display=block"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 상단 커버 사진(style.css 의 .page-bg-photo) 속 얼굴이 보이도록 본문을 그 아래에서 시작 */
+    main.container { padding-top: 380px !important; }
+    main.container > h2 { text-shadow: 0 1px 12px rgba(249, 246, 239, 0.9); }
+
+    @media (max-width: 768px) {
+      main.container { padding-top: 340px !important; }
+    }
+  </style>
 </head>
 
-<!-- 페이지 전체 배경: 배경 사진을 바꾸려면 아래 url(...) 의 파일명을 바꿔주세요 (긴 변 1600px 이하 흑백 webp 권장) -->
-<body class="page-bg-photo" style="--page-bg-image: url('photo/people-bg.webp');">
+<!-- 상단 커버 사진: 바꾸려면 아래 url(...) 의 파일명을 바꿔주세요 (가로 1600px 정도 webp 권장, 얼굴이 사진 세로 35~60% 지점에 오면 잘 맞음) -->
+<body class="page-bg-photo" style="--page-bg-image: url('photo/people-bg-warm.webp');">
   <header class="topbar">
     <div class="container topbar-main">
       <a href="index.html" class="brand" style="text-decoration: none;">
@@ -291,6 +300,7 @@
           <ul style="margin-left: 20px;">
             <li>AI Software Systems Engineering</li>
             <li>Scalable High-performance Storage Architectures</li>
+            <li>Distributed AI Infrastructure</li>
           </ul>
           <h4>Recent Publications</h4>
           <ul style="margin-left: 20px;">
