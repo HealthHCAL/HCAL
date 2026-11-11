@@ -200,6 +200,18 @@ body {
   object-fit: cover;
 }
 
+/* 원본 화질 영상: 가벼운 영상 위에 투명하게 겹쳐 받은 뒤 페이드로 나타남 (index.html 스크립트) */
+.hero-video-hd {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-video-hd.is-ready {
+  opacity: 1;
+}
+
 /* 텍스트 가독성을 위한 어두운 오버레이 */
 .hero::after {
   content: '';

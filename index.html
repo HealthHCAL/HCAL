@@ -59,18 +59,19 @@
   <main>
     <section class="hero">
       <div class="hero-slider">
-        <!-- poster: 영상이 도착하기 전까지 보여줄 첫 프레임 이미지
+        <!-- src: 가벼운 영상(먼저 재생) / data-hd: 원본 화질 영상 (넓은 화면·빠른 회선에서만 나중에 받아 교체)
+             poster: 영상이 도착하기 전까지 보여줄 첫 프레임 이미지
              preload="none": 2·3번 영상은 해당 슬라이드 차례가 가까워질 때 받기 시작함 (첫 화면 로딩 속도 확보) -->
         <div class="hero-slide active">
-          <video class="hero-video" src="photo/hero1-web.mp4" poster="photo/hero1-poster.webp"
+          <video class="hero-video" src="photo/hero1-web.mp4" data-hd="photo/hero1-hd.mp4" poster="photo/hero1-poster.webp"
             autoplay loop muted playsinline preload="auto"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" src="photo/hero2-web.mp4" poster="photo/hero2-poster.webp"
+          <video class="hero-video" src="photo/hero2-web.mp4" data-hd="photo/hero2-hd.mp4" poster="photo/hero2-poster.webp"
             loop muted playsinline preload="none"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" src="photo/hero3-web.mp4" poster="photo/hero3-poster.webp"
+          <video class="hero-video" src="photo/hero3-web.mp4" data-hd="photo/hero3-hd.mp4" poster="photo/hero3-poster.webp"
             loop muted playsinline preload="none"></video>
         </div>
       </div>
@@ -197,6 +198,9 @@
         };
         video.addEventListener('progress', check, { signal: watch.signal });
         video.addEventListener('suspend', check, { signal: watch.signal }); // 다운로드가 끝나 멈췄을 때
+        // 마지막 progress 이벤트 뒤에야 다 받은 상태가 되는 경우가 있어 1초마다도 확인
+        const poll = setInterval(check, 1000);
+        watch.signal.addEventListener('abort', () => clearInterval(poll));
         check();
       }
 
@@ -214,6 +218,72 @@
 
       function stopAutoSlide() {
         clearInterval(slideInterval);
+      }
+
+      // ── 원본 화질로 교체 ──────────────────────────────────────────
+      // 가벼운 영상(-web)을 먼저 재생하고, 받고 있는 가벼운 영상이 하나도 없을 때만
+      // 원본(-hd)을 한 번에 하나씩 백그라운드로 받아 두었다가 겹쳐서 페이드로 교체한다.
+      // 좁은 화면, 느린 회선(3G 이하), 데이터 절약 모드에서는 교체하지 않는다.
+      const HD_MIN_WIDTH = 1024;
+      function canUseHd() {
+        const c = navigator.connection;
+        if (c && (c.saveData || /(^|-)2g$|^3g$/.test(c.effectiveType || ''))) return false;
+        return window.matchMedia(`(min-width: ${HD_MIN_WIDTH}px)`).matches;
+      }
+
+      const isBuffered = v => v.buffered.length > 0 && v.duration > 0 &&
+        v.buffered.end(v.buffered.length - 1) >= v.duration - 0.5;
+
+      let hdLoading = false;
+      const hdTimer = setInterval(() => {
+        if (hdLoading) return;
+        if (!canUseHd()) return;
+        const videos = Array.from(slides, sl => sl.querySelector('video'));
+        // 가벼운 영상이 먼저: 받는 중인 것이 있거나, 다음 슬라이드의 가벼운 영상을 아직 다 받지 않았으면 기다림
+        if (videos.some(v => v.preload !== 'none' && !isBuffered(v))) return;
+        const following = videos[(currentSlide + 1) % slides.length];
+        if (following.preload === 'none') return;
+        // 지금 슬라이드부터 순서대로 아직 교체 안 된 것 하나
+        for (let k = 0; k < slides.length; k++) {
+          const i = (currentSlide + k) % slides.length;
+          const v = videos[i];
+          if (v.dataset.hd && v.preload !== 'none') return loadHd(i, v);
+        }
+        if (videos.every(v => !v.dataset.hd)) clearInterval(hdTimer);
+      }, 1000);
+
+      function loadHd(i, low) {
+        hdLoading = true;
+        const hd = document.createElement('video');
+        hd.className = 'hero-video hero-video-hd';
+        hd.muted = true;
+        hd.loop = true;
+        hd.playsInline = true;
+        hd.preload = 'auto';
+        hd.src = low.dataset.hd;
+        delete low.dataset.hd;
+
+        // 다 받았는지 0.5초마다 확인 (progress 이벤트만으로는 마지막 순간을 놓칠 수 있음)
+        const poll = setInterval(() => {
+          if (!isBuffered(hd)) return;
+          clearInterval(poll);
+          swapToHd(i, low, hd);
+        }, 500);
+        hd.addEventListener('error', () => { clearInterval(poll); hd.remove(); hdLoading = false; });
+        low.after(hd);   // DOM 에 붙여야 일부 브라우저가 실제로 받기 시작함 (투명 상태)
+      }
+
+      function swapToHd(i, low, hd) {
+        const finish = () => { low.remove(); hdLoading = false; };
+        if (i !== currentSlide) {        // 안 보이는 슬라이드는 바로 교체
+          hd.classList.add('is-ready');
+          return finish();
+        }
+        hd.currentTime = (low.currentTime + 0.15) % (hd.duration || 10);  // 시작까지 걸리는 짧은 시간 보정
+        hd.play().then(() => {
+          hd.classList.add('is-ready');
+          setTimeout(finish, 700);       // 페이드(0.6초)가 끝난 뒤 가벼운 영상 제거
+        }).catch(() => { hd.remove(); hdLoading = false; });
       }
 
       // 초기 실행
