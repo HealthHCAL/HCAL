@@ -243,7 +243,7 @@ body {
   right: 0;
   transform: translateY(-50%);
   display: grid;
-  grid-template-columns: 1.5fr 1fr; /* 텍스트 비중을 늘림 */
+  grid-template-columns: 1fr;
   gap: 60px;
   align-items: center;
   /* 본문(.container)과 같은 폭·여백으로 맞춰, 넓은 화면에서도 텍스트가 본문과 같은 선에서 시작하도록 함 */
@@ -267,33 +267,63 @@ body {
   z-index: 5;
 }
 
-/* 슬라이더 제어 버튼 */
-.hero-btn {
+/* 하단 슬라이드 탭: 지금 슬라이드 탭 위에 다음 전환(10초)까지 흰 막대가 차오름 */
+.hero-tabs {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  max-width: 1800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.hero-tab {
+  appearance: none;
+  position: relative;
+  background: none;
+  border: 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 16px 0 26px;
+  text-align: left;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  transition: color 0.2s;
 }
 
-.hero-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: white;
+.hero-tab:hover,
+.hero-tab.active { color: #fff; }
+
+.hero-tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 0;
+  height: 2px;
+  background: #fff;
 }
 
-.hero-btn.prev { left: 30px; }
-.hero-btn.next { right: 30px; }
+.hero-tab.active::before { animation: hero-tab-progress 10s linear forwards; }
+
+@keyframes hero-tab-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.hero-tab:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
 
 .hero-spacer {
   display: none;
@@ -318,17 +348,7 @@ body {
   text-wrap: pretty;
 }
 
-.hero-panel {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  padding: 24px 28px; /* 패딩을 줄여 더 콤팩트하게 */
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  z-index: 5;
-  max-width: 380px; /* 박스 최대 너비 제한 */
-  justify-self: end; /* 그리드 내에서 우측 정렬 */
-}
+
 
 @media (max-width: 1100px) {
   .hero { margin-bottom: 40px; }
@@ -340,43 +360,14 @@ body {
   .hero-text { display: flex; flex-direction: column; align-items: center; }
   .hero h2 { font-size: 2.5rem; }
   .hero-desc { font-size: 1rem; }
-  .hero-panel { display: none; } /* 모바일에서 패널 숨김 (가독성) */
-  .hero-btn { width: 40px; height: 40px; }
 }
 
 @media (max-width: 600px) {
   .hero-content { width: 100%; padding: 0 20px; }
+  .hero-tabs { width: 100%; padding: 0 20px; gap: 12px; }
+  .hero-tab { font-size: 0.8rem; }
   .hero h2 { font-size: 2rem; }
   .hero-center-spline { height: 300px; }
-  .hero-panel { padding: 20px; }
-}
-
-.hero-panel h3 {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero-panel ul {
-  list-style: none;
-  padding: 0;
-}
-
-.hero-panel li {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  padding-left: 15px;
-  position: relative;
-}
-
-.hero-panel li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #60a5fa;
 }
 
 /* Area Sections */
