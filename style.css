@@ -17,7 +17,8 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Segoe UI', sans-serif;
   color: var(--text-dark);
   line-height: 1.6;
   background-color: var(--bg-light);
@@ -49,14 +50,14 @@ body {
 .topbar {
   background: var(--bg-light);
   /* 아래쪽 여백/테두리를 없애 네비게이션 바가 본문(히어로 영상)에 바로 맞닿도록 함 */
-  padding: 10px 0 0;
+  padding: 20px 0 0;
 }
 
 .topbar-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 16px;
+  padding-bottom: 32px;
 }
 
 .brand {
@@ -88,6 +89,8 @@ body {
 .top-links {
   display: flex;
   align-items: center;
+  /* 로고 높이의 세로 가운데가 아니라 헤더 컨테이너 위쪽에 붙임 */
+  align-self: flex-start;
 }
 
 .top-badge {
@@ -116,12 +119,6 @@ body {
 .top-badge:hover {
   background: transparent;
   color: var(--primary-navy);
-}
-
-.top-badge .material-symbols-outlined {
-  font-size: 14px;
-  color: var(--accent-blue);
-  opacity: 0.8;
 }
 
 .nav {
@@ -562,8 +559,113 @@ body {
 
 /* Footer */
 .footer {
-  padding: 60px 0;
+  /* 본문과 푸터 사이 간격 */
+  margin-top: 320px;
+  padding: 64px 0 0;
   border-top: 1px solid var(--border-color);
+  /* 모든 페이지에서 흰색 (People 페이지처럼 배경 사진이 깔린 페이지에서도 비치지 않도록) */
+  background: #fff;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* 3열 2행: 1행(.footer-main)과 2행(.footer-bar)이 같은 열 폭을 써서 위아래 칸이 맞음 */
+.footer-main,
+.footer-bar {
+  display: grid;
+  /* minmax(0, …): 칸 안 글 길이와 상관없이 비율대로 나눠 1행·2행 열 폭이 항상 같게 */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr);
+  column-gap: 48px;
+}
+
+.footer-main {
+  align-items: start;
+  padding-bottom: 48px;
+}
+
+.footer-cell p { margin: 0 0 6px; line-height: 1.8; }
+
+.footer-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px !important;
+}
+
+/* 강원대 로고 + HCAL 로고 (photo/footer-logos.webp 한 장): 칸 폭에 맞춰 줄어듦 */
+.footer-logos {
+  display: block;
+  width: 100%;
+  max-width: 336px;
+  height: auto;
+  margin-bottom: 14px;
+}
+
+.footer-slogan {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* 슬로건은 1열 칸에 한 줄로 들어가는 넓은 화면(1440px 이상)에서만 한 줄로 */
+@media (min-width: 1440px) {
+  .footer-slogan { white-space: nowrap; }
+  .footer-slogan br { display: none; }
+}
+
+.footer-contact p { word-break: keep-all; }
+
+.footer-join p { word-break: keep-all; }
+
+/* Join Us 문의 이메일: 누르면 메일 쓰기 화면이 열림 */
+.footer-join-mail {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--accent-blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-join-mail:hover { text-decoration: underline; }
+
+/* 2행: 얇은 하단 바 */
+.footer-bar {
+  align-items: center;
+  padding: 20px 0 28px;
+  font-size: 0.75rem;
+}
+
+.footer-copy {
+  /* 비어 있는 가운데 칸까지 써서 넓은 화면에서는 한 줄로 */
+  grid-column: 1 / 3;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.45);
+  letter-spacing: 0.04em;
+}
+
+.footer-top {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-top:hover { color: var(--primary-navy); }
+
+/* 맨 위로 버튼은 가운데 칸을 비워 두고 3열(오른쪽 끝)에 고정 */
+.footer-top { grid-column: 3; justify-self: end; letter-spacing: 0.06em; }
+
+@media (max-width: 768px) {
+  .footer { margin-top: 192px; padding-top: 48px; }
+  .footer-main,
+  .footer-bar {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+  .footer-main { padding-bottom: 36px; }
+  .footer-bar { row-gap: 14px; }
+  .footer-copy,
+  .footer-top { grid-column: auto; }
+  .footer-top { justify-self: start; }
 }
 
 .footer-icon {
@@ -604,11 +706,6 @@ body {
   /* 인라인 style로 고정폭(예: 300px 1fr)이 지정된 2단 카드까지 확실히 1단으로 쌓음 */
   .hero-inner, .grid-2, .dark-grid, .area-03-grid {
     grid-template-columns: 1fr !important;
-  }
-  /* 푸터 3단(로고·연락처) 그리드를 모바일에서 1단으로 쌓아 가로 넘침 방지 */
-  .footer .container > div:first-child {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
   }
 }
 
@@ -702,4 +799,149 @@ body {
 
 .page-bg-photo {
   background: transparent;
+}
+
+/* 한 줄 최대 4개 카드 그리드 (People 학부생 섹션)
+   열 구성은 다른 섹션과 같게 두어 카드 너비는 그대로 유지하고,
+   4열 이상 생기는 폭(250px*4 + 간격 30px*3 = 1090px)에서만 5번째·9번째… 카드를 다음 줄 첫 칸으로 보냄 */
+.grid-max-4-wrap {
+  container-type: inline-size;
+}
+
+@container (min-width: 1090px) {
+  .grid-max-4 > :nth-child(4n + 1) {
+    grid-column-start: 1;
+  }
+}
+
+/* People 카드의 인물 사진: 세로 사진을 가로 박스에 채울 때 가운데가 아니라 위쪽 기준으로 잘라
+   머리 윗부분이 잘리지 않게 함 (대신 아래쪽 어깨·가슴이 더 잘림) */
+.person-photo {
+  object-position: center top;
+}
+
+/* 넓은 화면에서만 적용되는 줄바꿈 (People 교수 소개)
+   좁은 화면에서는 앞부분이 한 줄에 다 들어가지 않아 단어 몇 개만 따로 남으므로 숨김
+   기준 폭: 교수 소개 첫 줄이 한 줄에 들어가는 약 1610px + 여유 */
+.br-wide {
+  display: none;
+}
+
+@media (min-width: 1680px) {
+  .br-wide { display: inline; }
+}
+
+/* ===== 뉴스 상세 페이지 (news-detail.html) ===== */
+.news-detail-page {
+  max-width: 1000px;
+}
+
+.news-back {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: var(--accent-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.news-back:hover { text-decoration: underline; }
+
+.news-detail-status {
+  color: var(--text-muted);
+  padding: 40px 0;
+}
+
+.news-detail-date {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  margin-bottom: 12px;
+}
+
+.news-detail-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--primary-navy);
+  margin-bottom: 36px;
+  word-break: keep-all;
+  text-wrap: balance;
+}
+
+/* 사진: 잘리지 않게 원본 비율 그대로, 페이지 폭까지 크게. 원래 작은 사진은 억지로 키우지 않음 */
+.news-detail-figure {
+  margin: 0 0 40px;
+  background: var(--bg-gray);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.news-detail-figure img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 80vh;
+  margin: 0 auto;
+}
+
+/* 본문: 한국어 단어가 중간에서 끊기지 않게(keep-all), 줄 끝이 고르게(pretty) */
+.news-detail-body {
+  max-width: 760px;
+  font-size: 1.08rem;
+  line-height: 1.95;
+  color: var(--text-dark);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+.news-detail-body p + p { margin-top: 1.2em; }
+
+.news-detail-body a {
+  color: var(--accent-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* 이전·다음 소식 */
+.news-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-color);
+}
+
+.news-pager-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.news-pager-item:hover { border-color: var(--accent-blue); background: var(--bg-gray); }
+.news-pager-item.is-next { text-align: right; }
+.news-pager-item.is-empty { border: none; padding: 0; }
+.news-pager-label { font-size: 0.85rem; font-weight: 700; color: var(--accent-blue); }
+.news-pager-title { font-weight: 600; word-break: keep-all; }
+
+@media (max-width: 600px) {
+  .news-detail-title { font-size: 1.6rem; }
+  .news-detail-body { font-size: 1rem; }
+  .news-pager { grid-template-columns: 1fr; }
+  .news-pager-item.is-next { text-align: left; }
+  .news-pager-item.is-empty { display: none; }
+}
+
+/* 좁은 화면에서만 적용되는 줄바꿈 (푸터 저작권 문구) — 한 줄에 다 들어가는 900px 이상에서는 숨김 */
+@media (min-width: 900px) {
+  .br-narrow { display: none; }
 }
