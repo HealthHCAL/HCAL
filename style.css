@@ -592,7 +592,8 @@ body {
 .footer-cell p { margin: 0 0 6px; line-height: 1.8; }
 
 .footer-heading {
-  font-size: 0.95rem;
+  font-size: 1.24rem;
+  line-height: 1.4;
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 12px !important;
@@ -619,7 +620,22 @@ body {
   .footer-slogan br { display: none; }
 }
 
-.footer-contact p { word-break: keep-all; }
+/* 주소처럼 여러 줄로 나뉘는 문장은 줄마다 너비가 비슷하도록 */
+.footer-contact p { word-break: keep-all; text-wrap: balance; }
+
+/* 아이콘 + 글: 둘째 줄부터도 아이콘 오른쪽 글 시작선에 맞춰 들여쓰기 */
+.footer-contact p:has(> .footer-icon) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 6px;
+  align-items: start;
+}
+
+.footer-contact p > .footer-icon {
+  margin: 0;
+  /* 첫 줄 글자 높이 가운데에 맞춤 (줄 높이 1.8em, 아이콘 14px) */
+  margin-top: calc((1.8em - 14px) / 2);
+}
 
 .footer-join p { word-break: keep-all; }
 
@@ -627,12 +643,16 @@ body {
 .footer-join-mail {
   display: inline-block;
   margin-top: 6px;
-  color: var(--accent-blue);
-  font-weight: 700;
+  color: var(--text-dark);
+  font-weight: 600;
   text-decoration: none;
 }
 
-.footer-join-mail:hover { text-decoration: underline; }
+.footer-join-mail:hover {
+  color: var(--accent-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* 2행: 얇은 하단 바 */
 .footer-bar {
