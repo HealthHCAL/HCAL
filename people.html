@@ -13,7 +13,7 @@
     rel="stylesheet" crossorigin>
   <!-- 아이콘 폰트는 사용하는 아이콘만 받도록 icon_names 로 제한되어 있습니다.
        새 아이콘을 쓰려면 아래 icon_names 에 이름을 알파벳 순서에 맞춰 추가하세요. -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call,chevron_left,chevron_right,hub,location_on,mail,monitor_heart,search,smart_toy&display=block"
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call,chevron_left,chevron_right,hub,location_on,mail,monitor_heart,smart_toy&display=block"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -84,47 +84,30 @@
     <section style="margin-bottom: 60px;">
       <h3 class="area-title">Ph.D. Students</h3>
       <div class="dark-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_sim')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/Sim.webp" width="627" height="800" loading="lazy" alt="심상욱" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">심상욱</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Sangwook Sim</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_sim')">
+          <span class="member-photo"><img src="photo/Sim.webp" width="627" height="800" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">심상욱</span>
+            <span class="member-en">Sangwook Sim</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
       </div>
     </section>
 
     <!-- Master's Students -->
     <section style="margin-bottom: 60px;">
-      <h3 class="area-title" style="border-left-color: #34A853;">Master's Students</h3>
+      <h3 class="area-title">Master's Students</h3>
       <div class="dark-grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
         <!-- 오단휘 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_oh')" onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/Dan.webp" width="500" height="643" loading="lazy" alt="오단휘" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">오단휘</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Danhwi Oh</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_oh')">
+          <span class="member-photo"><img src="photo/Dan.webp" width="500" height="643" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">오단휘</span>
+            <span class="member-en">Danhwi Oh</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
 
       </div>
     </section>
@@ -134,144 +117,80 @@
 
     <!-- Undergraduate Students -->
     <section class="grid-max-4-wrap" style="margin-bottom: 60px;">
-      <h3 class="area-title" style="border-left-color: #FBBC05;">Undergraduate Students</h3>
+      <h3 class="area-title">Undergraduate Students</h3>
 
       <!-- 넓은 화면에서도 한 줄에 최대 4명 (카드 너비는 다른 섹션과 같음, style.css 의 .grid-max-4 참고) -->
       <!-- 카드 이름 아래 영문 이름은 추정 표기입니다. 본인이 쓰는 철자와 다르면 각 카드의 <p> 안 글자를 고쳐 주세요. -->
       <div class="dark-grid grid-max-4" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
         <!-- 김상엽 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_yeop')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/Yeop.webp" width="500" height="643" loading="lazy" alt="김상엽" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">김상엽</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Sangyeop Kim</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_yeop')">
+          <span class="member-photo"><img src="photo/Yeop.webp" width="500" height="643" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">김상엽</span>
+            <span class="member-en">Sangyeop Kim</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
 
         <!-- 임형근 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_lim')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/LIM.webp" width="551" height="709" loading="lazy" alt="임형근" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">임형근</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Hyeonggeun Lim</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_lim')">
+          <span class="member-photo"><img src="photo/LIM.webp" width="551" height="709" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">임형근</span>
+            <span class="member-en">Hyeonggeun Lim</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
 
         <!-- 빈 슬롯 1 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_new1')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/Joo.webp" width="354" height="472" loading="lazy" alt="김주현" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">김주현</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Juhyeon Kim</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_new1')">
+          <span class="member-photo"><img src="photo/Joo.webp" width="354" height="472" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">김주현</span>
+            <span class="member-en">Juhyeon Kim</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
 
         <!-- 박상훈 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_new2')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/sang.webp" width="645" height="800" loading="lazy" alt="박상훈" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">박상훈</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Sanghun Park</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_new2')">
+          <span class="member-photo"><img src="photo/sang.webp" width="645" height="800" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">박상훈</span>
+            <span class="member-en">Sanghun Park</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
 
         <!-- 변민석 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_byeon')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/seok.webp" width="601" height="800" loading="lazy" alt="변민석" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">변민석</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Minseok Byeon</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_byeon')">
+          <span class="member-photo"><img src="photo/seok.webp" width="601" height="800" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">변민석</span>
+            <span class="member-en">Minseok Byeon</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
 
         <!-- 이은석 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_lee')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <img src="photo/Lee.webp" width="500" height="667" loading="lazy" alt="이은석" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">이은석</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Eunseok Lee</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_lee')">
+          <span class="member-photo"><img src="photo/Lee.webp" width="500" height="667" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">이은석</span>
+            <span class="member-en">Eunseok Lee</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
 
         <!-- 김유정 -->
-        <div class="photo-card" style="border: 1px solid var(--border-color); padding: 20px;">
-          <div class="cursor-pointer"
-            style="background: #f0f0f0; aspect-ratio: 3 / 4; border-radius: 8px; margin-bottom: 15px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;"
-            onclick="openModal('modal_student_yujeong')"
-            onmouseover="this.querySelector('.hover-overlay').style.opacity='1'"
-            onmouseout="this.querySelector('.hover-overlay').style.opacity='0'">
-            <!-- 김유정 사진입니다. photo/U.png -->
-            <img src="photo/U.webp" width="622" height="800" loading="lazy" alt="김유정" class="person-photo" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hover-overlay"
-              style="position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
-              <span class="material-symbols-outlined"
-                style="color: white; font-size: 2rem; margin-bottom: 5px;">search</span>
-              <span style="color: white; font-weight: bold; font-size: 0.9rem;">세부정보 보기</span>
-            </div>
-          </div>
-          <h4 style="font-size: 1.1rem; margin-bottom: 5px;">김유정</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Yujeong Kim</p>
-        </div>
+        <button type="button" class="member-card" onclick="openModal('modal_student_yujeong')">
+          <span class="member-photo"><img src="photo/U.webp" width="622" height="800" loading="lazy" alt="" class="person-photo"></span>
+          <span class="member-info">
+            <span class="member-name">김유정</span>
+            <span class="member-en">Yujeong Kim</span>
+            <span class="member-more" aria-hidden="true">→</span>
+          </span>
+        </button>
       </div>
     </section>
   </main>
@@ -288,9 +207,8 @@
 
         <div class="footer-cell footer-contact">
           <p class="footer-heading">Human-Centered AI Lab</p>
-          <p><span class="material-symbols-outlined footer-icon">location_on</span> 강원도 삼척시 중앙로 346, (교동, 강원대학교) 제5공학관 408호</p>
+          <p><span class="material-symbols-outlined footer-icon">location_on</span> Room 408, Engineering Building 5, Kangwon National University, 346 Jungang-ro, Samcheok-si, Gangwon-do, Republic of Korea</p>
           <p><span class="material-symbols-outlined footer-icon">call</span> Tel : 033-570-6587</p>
-          <p><span class="material-symbols-outlined footer-icon">mail</span> tiockdrbs@kangwon.ac.kr</p>
         </div>
 
         <!-- Join Us: 모집 문구와 문의 이메일(교수님)은 여기서 바꿔 주세요 -->
@@ -475,10 +393,40 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
 
+    // 모달 제목: '국문 이름  영문 이름' 한 줄 + 직위 아랫줄
+    // title 은 '이름 (직위)' 형식 그대로 두고, 영문 이름은 카드의 영문 이름을 가져옴
+    function renderModalTitle(studentId, title) {
+      const m = title.match(/^(.*?)\s*\((.*)\)\s*$/);
+      const name = m ? m[1] : title;
+      const role = m ? m[2] : '';
+      const card = document.querySelector(`.member-card[onclick*="'${studentId}'"]`);
+      const en = card ? card.querySelector('.member-en')?.textContent.trim() : '';
+
+      modalTitle.textContent = '';
+      const line = document.createElement('span');
+      line.className = 'modal-name-line';
+      const ko = document.createElement('span');
+      ko.textContent = name;
+      line.appendChild(ko);
+      if (en) {
+        const enEl = document.createElement('span');
+        enEl.className = 'modal-name-en';
+        enEl.textContent = en;
+        line.appendChild(enEl);
+      }
+      modalTitle.appendChild(line);
+      if (role) {
+        const roleEl = document.createElement('span');
+        roleEl.className = 'modal-role';
+        roleEl.textContent = role;
+        modalTitle.appendChild(roleEl);
+      }
+    }
+
     function openModal(studentId) {
       const data = studentData[studentId];
       if (data) {
-        modalTitle.textContent = data.title;
+        renderModalTitle(studentId, data.title);
         modalBody.innerHTML = data.content;
         hideEmptyPublications(modalBody);
         modalOverlay.classList.add('active');
