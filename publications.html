@@ -7,83 +7,142 @@
   <title>Publications | Human-Centered AI Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <!-- 본문 글꼴: Pretendard (dynamic subset — 페이지에 쓰인 글자 조각만 받아 느린 회선에서도 가벼움) -->
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    rel="stylesheet" crossorigin>
   <!-- 아이콘 폰트는 사용하는 아이콘만 받도록 icon_names 로 제한되어 있습니다.
        새 아이콘을 쓰려면 아래 icon_names 에 이름을 알파벳 순서에 맞춰 추가하세요. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_balance,archive,article,bar_chart,calendar_today,call,chevron_left,chevron_right,cloud,computer,expand_more,forum,groups,handshake,hub,image,lightbulb,location_on,mail,menu_book,monitor_heart,psychology,restaurant,school,search,smart_toy&display=block"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call,location_on,mail&display=block"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .pub-item {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      margin-bottom: 25px;
-      padding: 25px;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      background: #fff;
+    /* 탭: 편수와 함께 표시, 주소(#scie / #kci / #patents)로 바로 열림 */
+    .pub-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 28px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 48px;
     }
 
-    .pub-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
-      border-color: var(--primary-navy);
+    .pub-tabs button {
+      appearance: none;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+      padding: 10px 0;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .pub-tabs button:hover { color: var(--primary-navy); }
+
+    .pub-tabs button[aria-selected="true"] {
+      color: var(--primary-navy);
+      font-weight: 800;
+      border-bottom-color: var(--primary-navy);
+    }
+
+    .pub-count {
+      margin-left: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 탭 이름과 같은 섹션 제목은 화면에서 숨김 (편집용으로만 남김) */
+    .pub-section > h3 { display: none; }
+
+    /* 연도별 묶음: 왼쪽 연도, 오른쪽 목록 */
+    .pub-group {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 0 32px;
+      padding-top: 8px;
+      margin-bottom: 40px;
+    }
+
+    .pub-group-label {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary-navy);
+      line-height: 1;
+      padding-top: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pub-group-items { border-top: 2px solid var(--primary-navy); }
+
+    /* 논문 한 편 */
+    .pub-item {
+      display: block;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-color);
+      text-decoration: none;
+      color: inherit;
+      word-break: keep-all;
     }
 
     .pub-title {
+      font-size: 1.05rem;
       font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--primary-navy);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
+      line-height: 1.5;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      text-wrap: pretty;
     }
 
     .pub-title::after {
-      content: '\e89e';
-      /* open_in_new icon */
-      font-family: 'Material Symbols Outlined';
-      font-size: 1.2rem;
-      color: var(--accent-blue);
-      opacity: 0;
-      transition: opacity 0.3s;
-      transform: translateX(-10px);
+      content: ' ↗';
+      font-weight: 400;
+      color: var(--text-muted);
     }
 
-    .pub-item:hover .pub-title::after {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .pub-item:hover .pub-title { color: var(--accent-blue); text-decoration: underline; text-underline-offset: 3px; }
+    .pub-item:hover .pub-title::after { color: var(--accent-blue); }
 
     .pub-authors {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: #333;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
     }
+
+    .pub-authors:empty { display: none; }
+    .pub-authors strong { color: var(--text-dark); font-weight: 700; }
 
     .pub-venue {
+      font-size: 0.92rem;
       font-style: italic;
-      font-size: 0.95rem;
-      color: var(--accent-blue);
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      color: var(--text-muted);
     }
 
-    .pub-year {
-      display: none;
-      background: var(--light-gray);
-      color: var(--primary-navy);
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+    /* 연도는 왼쪽 묶음 제목으로 보여 주므로 항목 안에서는 숨김 (메인 화면의 최근 논문 목록이 이 값을 읽음) */
+    .pub-year { display: none; }
+
+    /* 특허: 국내/해외 표시 */
+    .pub-badge {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 1px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-style: normal;
       font-weight: 700;
-      margin-bottom: 12px;
+      background: var(--bg-gray);
+      border: 1px solid var(--border-color);
+      color: var(--text-dark);
+    }
+
+    @media (max-width: 768px) {
+      .pub-group { grid-template-columns: 1fr; }
+      .pub-group-label { padding: 0 0 12px; }
     }
   </style>
 </head>
@@ -100,16 +159,16 @@
       </a>
       <div class="top-links">
         <a href="https://www.kangwon.ac.kr/" target="_blank" class="top-badge">
-          <span class="material-symbols-outlined">account_balance</span> KNU Home
+          KNU Home
         </a>
         <a href="https://eais.kangwon.ac.kr/EAIS/index.do" target="_blank" class="top-badge">
-          <span class="material-symbols-outlined">computer</span> 첨단AI공학과
+          첨단AI공학과
         </a>
         <a href="https://kcloud.kangwon.ac.kr/login" target="_blank" class="top-badge">
-          <span class="material-symbols-outlined">cloud</span> K-Cloud
+          K-Cloud
         </a>
         <a href="https://eruri.kangwon.ac.kr/login/index.php" target="_blank" class="top-badge">
-          <span class="material-symbols-outlined">school</span> 이루리
+          이루리
         </a>
       </div>
     </div>
@@ -129,16 +188,12 @@
   <main class="container" style="padding: 80px 20px;">
     <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 40px;">PUBLICATIONS</h2>
 
-    <!-- Category Navigation -->
-    <div id="pubTabs"
-      style="margin-bottom: 50px; border-bottom: 2px solid var(--primary-navy); padding-bottom: 10px; display: flex; gap: 30px;">
-      <a href="#" onclick="showPubTab('scie', this); return false;" class="pub-tab-link"
-        style="text-decoration:none; color:var(--primary-navy); font-weight:700;">SCI(E) / SCOPUS</a>
-      <a href="#" onclick="showPubTab('kci', this); return false;" class="pub-tab-link"
-        style="text-decoration:none; color:var(--text-muted); font-weight:600;">KCI</a>
-      <a href="#" onclick="showPubTab('patents', this); return false;" class="pub-tab-link"
-        style="text-decoration:none; color:var(--text-muted); font-weight:600;">PATENTS (특허)</a>
-    </div>
+    <!-- 분류 탭: 편수는 자동으로 셉니다. 주소 끝에 #kci, #patents 를 붙이면 해당 탭이 바로 열립니다. -->
+    <nav class="pub-tabs" role="tablist" aria-label="논문 분류">
+      <button type="button" role="tab" data-tab="scie" aria-selected="true">SCI(E) / SCOPUS<span class="pub-count"></span></button>
+      <button type="button" role="tab" data-tab="kci" aria-selected="false">KCI<span class="pub-count"></span></button>
+      <button type="button" role="tab" data-tab="patents" aria-selected="false">Patents<span class="pub-count"></span></button>
+    </nav>
 
     <!-- SCI(E) / SCOPUS Section -->
     <section id="scie" class="pub-section" style="margin-bottom: 80px;">
@@ -152,8 +207,7 @@
           Quality Forecasting Across Texas and California (2005–2025)</h4>
         <p class="pub-authors">Qamar, A., Maashi, M., Almutairi, A., Marzouk, R., Ebad, S. A., Kim, C., Fitriyani, N. L.,
           & Syafrudin, M.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span>
-          IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</p>
+        <p class="pub-venue">IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</p>
       </a>
 
       <a href="https://openurl.ebsco.com/EPDB%3Agcd%3A14%3A25864478/detailv2?sid=ebsco%3Aplink%3Acrawler-gcd&id=ebsco%3Agcd%3A195201691&crl=c&jrnl=2158107X&link_origin=scholar.google.com"
@@ -162,8 +216,7 @@
         <h4 class="pub-title">Characterizing Operational Drift in Cement Manufacturing Process Data via Self-Supervised
           Representation Learning</h4>
         <p class="pub-authors">Kim, C.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span>
-          International Journal of Advanced Computer Science and Applications</p>
+        <p class="pub-venue">International Journal of Advanced Computer Science and Applications</p>
       </a>
 
       <a href="https://www.tandfonline.com/doi/full/10.1080/15366367.2026.2669159" target="_blank" class="pub-item">
@@ -171,8 +224,7 @@
         <h4 class="pub-title">Development of a Machine Learning–Based VO2max Prediction Framework Integrating Missing
           Data Imputation and SHAP Interpretation</h4>
         <p class="pub-authors">Lee, J. Y. & Kim, C.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span>
-          Measurement: Interdisciplinary Research and Perspectives</p>
+        <p class="pub-venue">Measurement: Interdisciplinary Research and Perspectives</p>
       </a>
 
       <a href="https://doi.org/10.1177/17479541261441416" target="_blank" class="pub-item">
@@ -180,8 +232,7 @@
         <h4 class="pub-title">Developing a generative ai–based anti-doping consultation system to enhance coaching
           practice and athlete decision-making</h4>
         <p class="pub-authors">Lee, J. Y., Park, J. H., Oh, D., & Kim, C.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span>
-          International Journal of Sports Science & Coaching</p>
+        <p class="pub-venue">International Journal of Sports Science & Coaching</p>
       </a>
 
       <a href="https://doi.org/10.3390/app16073272" target="_blank" class="pub-item">
@@ -189,7 +240,7 @@
         <h4 class="pub-title">An Integrated 60 GHz Radar and AI-Guided Infrared System for Non-Contact Heart Rate and
           Body Temperature Monitoring</h4>
         <p class="pub-authors">Sim, S., & Kim, C.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Applied
+        <p class="pub-venue">Applied
           Sciences.</p>
       </a>
 
@@ -198,7 +249,7 @@
         <h4 class="pub-title">Spinal Line Detection for Posture Evaluation Through Training-Free 3D Human Body
           Reconstruction with 2D Depth Images</h4>
         <p class="pub-authors">Kim, S., Lee, H. J., Lee, J., Kim, C., & Lee, T.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Applied
+        <p class="pub-venue">Applied
           Sciences, 16(2), 1096.</p>
       </a>
 
@@ -207,7 +258,7 @@
         <h4 class="pub-title">Development of a Deep Learning Model for Predicting Obesity Using Health Behavior Data of
           Elementary School Students</h4>
         <p class="pub-authors">Kim, C., & Lee, J. Y.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Iranian
+        <p class="pub-venue">Iranian
           Journal of Public Health</p>
       </a>
 
@@ -215,7 +266,7 @@
         <span class="pub-year">2025</span>
         <h4 class="pub-title">Interpretable deep multimodal-based tomato disease diagnosis and severity estimation</h4>
         <p class="pub-authors">Nasir, N., Ramzan, S., Ali, B., Jabbar, S., Raza, A., Kim, C., ... & Fitriyani, N. L.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Scientific
+        <p class="pub-venue">Scientific
           Reports</p>
       </a>
 
@@ -225,7 +276,7 @@
         </h4>
         <p class="pub-authors">Khalid, S., Ramzan, S., Iqbal, M. M., Raza, A., Smerat, A., Hosseinzadeh, M., Kim, C.,
           ... & Fitriyani, N. L.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> PeerJ
+        <p class="pub-venue">PeerJ
           Computer Science</p>
       </a>
 
@@ -236,7 +287,7 @@
           network for fake news detection</h4>
         <p class="pub-authors">Khalid, S., Ramzan, S., Iqbal, M. M., Thalji, N., Raza, A., Smerat, A., Kim, C., ... &
           Syafrudin, M.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> PLoS One
+        <p class="pub-venue">PLoS One
         </p>
       </a>
 
@@ -246,7 +297,7 @@
           Flood Risk Assessment</h4>
         <p class="pub-authors">Fatima, N., Alshahrani, H. M., Dafaalla, H., Allafi, R., Kim, C., Syafrudin, M., &
           Fitriyani, N. L.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> IEEE Access
+        <p class="pub-venue">IEEE Access
         </p>
       </a>
 
@@ -255,7 +306,7 @@
         <h4 class="pub-title">Development of an AI-Based Model for Identifying Doping Drugs Through Pill Image Analysis
         </h4>
         <p class="pub-authors">Lee, J. Y., Park, J. H., & Kim, C.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Journal of
+        <p class="pub-venue">Journal of
           Drug Issues</p>
       </a>
 
@@ -265,7 +316,7 @@
           Diseases Classification</h4>
         <p class="pub-authors">Hashmi, M. S. A., Qadri, A. M., Raza, A., Ullah, S., Smerat, A., Kim, C., ... &
           Fitriyani, N. L.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> IEEE Access
+        <p class="pub-venue">IEEE Access
         </p>
       </a>
 
@@ -275,7 +326,7 @@
         </h4>
         <p class="pub-authors">Toor, M. S., Shahbaz, H., Yasin, M., Ali, A., Fitriyani, N. L., Kim, C., & Syafrudin, M.
         </p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Mathematics
+        <p class="pub-venue">Mathematics
         </p>
       </a>
 
@@ -284,7 +335,7 @@
         <h4 class="pub-title">Attention-Based Hydrogen Refueling Imputation Model for Efficient Hydrogen Refueling
           Stations</h4>
         <p class="pub-authors">Ko, K., & Kim, C.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Applied
+        <p class="pub-venue">Applied
           Sciences</p>
       </a>
 
@@ -293,7 +344,7 @@
         <h4 class="pub-title">A Forest Fire Prediction Model Based on Meteorological Factors and the Multi-Model
           Ensemble Method</h4>
         <p class="pub-authors">Choi, S., Son, M., Kim, C., & Kim, B.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Forest</p>
+        <p class="pub-venue">Forest</p>
       </a>
 
       <a href="https://www.mdpi.com/2227-7390/12/20/3294" target="_blank" class="pub-item">
@@ -301,7 +352,7 @@
         <h4 class="pub-title">An Efficient Fusion Network for Fake News Classification</h4>
         <p class="pub-authors">Alzaidi, M. S. A., Alshammari, A., Hassan, A. Q., Yousafzai, S. N., Thaljaoui, A.,
           Fitriyani, N. L., Kim, C., & Syafrudin, M.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Mathematics
+        <p class="pub-venue">Mathematics
         </p>
       </a>
 
@@ -310,7 +361,7 @@
         <h4 class="pub-title">Proposal of a Cost-Effective and Adaptive Customized Driver Inattention Detection Model
           Using Time Series Analysis and Computer Vision</h4>
         <p class="pub-authors">Sim, S., & Kim, C.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> World
+        <p class="pub-venue">World
           Electric Vehicle Journal</p>
       </a>
 
@@ -319,7 +370,7 @@
         <h4 class="pub-title">Development of an Algorithm for Assessing the Scope of Large Forest Fire Using VIIRS-Based
           Data and Machine Learning</h4>
         <p class="pub-authors">Son, M. W., Kim, C. G., & Kim, B. S.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Remote
+        <p class="pub-venue">Remote
           Sensing</p>
       </a>
 
@@ -328,7 +379,7 @@
         <h4 class="pub-title">AI-based betting anomaly detection system to ensure fairness in sports and prevent illegal
           gambling</h4>
         <p class="pub-authors">Kim, C., Park, J. H., & Lee, J. Y.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Scientific
+        <p class="pub-venue">Scientific
           Reports</p>
       </a>
 
@@ -337,7 +388,7 @@
         <h4 class="pub-title">Development of a Non-Contact Sensor System for Converting 2D Images into 3D Body Data: A
           Deep Learning Approach to Monitor Obesity and Body Shape in Individuals in Their 20s and 30s</h4>
         <p class="pub-authors">Lee, J. Y., Kwon, K., Kim, C., & Youm, S.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">article</span> Sensors</p>
+        <p class="pub-venue">Sensors</p>
       </a>
     </section>
 
@@ -352,8 +403,7 @@
         <span class="pub-year">2026</span>
         <h4 class="pub-title">국내 역도 연구의 연구동향 및 지식구조 탐색: 키워드 네트워크 분석의 적용</h4>
         <p class="pub-authors">김창균, & 이지용.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">menu_book</span>
-          한국스포츠사이언스지</p>
+        <p class="pub-venue">한국스포츠사이언스지</p>
       </a>
 
       <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003359764"
@@ -361,8 +411,7 @@
         <span class="pub-year">2026</span>
         <h4 class="pub-title">이중 헤드 시간 영역 분해를 활용한 심장-폐음 분리 개선을 위한 합성 혼합물 감독 프레임워크</h4>
         <p class="pub-authors">김창균.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">menu_book</span>
-          한국융합신호처리학회</p>
+        <p class="pub-venue">한국융합신호처리학회</p>
       </a>
 
       <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003335435"
@@ -370,8 +419,7 @@
         <span class="pub-year">2026</span>
         <h4 class="pub-title">자가 관리 기반 조기 당뇨병 선별용 설명가능한 위험확률모형: 증상 기반 로지스틱 회귀와 앙상블 모형의 예측성능 및 보정능 비교</h4>
         <p class="pub-authors">김창균.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">menu_book</span>
-          한국스포츠사이언스지</p>
+        <p class="pub-venue">한국스포츠사이언스지</p>
       </a>
 
       <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003335434"
@@ -379,15 +427,14 @@
         <span class="pub-year">2026</span>
         <h4 class="pub-title">노인 신체계측 변수 기반 근감소증 탐지를 위한 유의 변수 탐색 : 머신러닝 접근</h4>
         <p class="pub-authors">이지용, & 김창균.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">menu_book</span>
-          한국스포츠사이언스지</p>
+        <p class="pub-venue">한국스포츠사이언스지</p>
       </a>
 
       <a href="https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11977874" target="_blank" class="pub-item">
         <span class="pub-year">2024</span>
         <h4 class="pub-title">헬스케어 분야에서 활용 가능한 AI 기반 체형 3D 모델링 기술 개발</h4>
         <p class="pub-authors">이지용, & 김창균.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">menu_book</span> 한국전자통신학회
+        <p class="pub-venue">한국전자통신학회
           논문지</p>
       </a>
 
@@ -395,15 +442,14 @@
         <span class="pub-year">2024</span>
         <h4 class="pub-title">버츄얼 유튜버 특성에 대한 탐색적 연구 : 텍스트마이닝을 통한 이용자 반응 분석을 중심으로</h4>
         <p class="pub-authors">하진경, & 김창균.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">menu_book</span>
-          한국콘텐츠학회논문지</p>
+        <p class="pub-venue">한국콘텐츠학회논문지</p>
       </a>
 
       <a href="#" target="_blank" class="pub-item">
         <span class="pub-year">2023</span>
         <h4 class="pub-title">딥러닝을 활용한 세계태권도 남자부 선수들의 경기유형 분류: 트랜스포머 알고리즘 적용</h4>
         <p class="pub-authors">윤효준, 김창균, & 전민수.</p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">menu_book</span> 대한무도학회지
+        <p class="pub-venue">대한무도학회지
         </p>
       </a>
     </section>
@@ -418,49 +464,49 @@
         <h4 class="pub-title">USER TERMINAL AND METHOD FOR PROVIDING BODY SHAPE INFORMATION FOR EACH BODY PART OF USER
         </h4>
         <p class="pub-authors"></p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">lightbulb</span> 출원번호: WO
+        <p class="pub-venue">출원번호: WO
           2023/090601 A1 (해외)</p>
       </a>
 
       <a href="https://doi.org/10.8080/1020210159119" target="_blank" class="pub-item">
         <h4 class="pub-title">사용자 단말기 및 사용자의 신체 부위 별 체형 정보를 제공하는 방법</h4>
         <p class="pub-authors"></p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">lightbulb</span> 출원번호:
+        <p class="pub-venue">출원번호:
           10-2021-0159119 (한국)</p>
       </a>
 
       <a href="https://doi.org/10.8080/1020200010599" target="_blank" class="pub-item">
         <h4 class="pub-title">강화학습 기반 경력자 전문능력 추천 시스템 및 추천 방법</h4>
         <p class="pub-authors"></p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">lightbulb</span> 출원번호:
+        <p class="pub-venue">출원번호:
           10-2020-0010599 (한국)</p>
       </a>
 
       <a href="https://doi.org/10.8080/1020190095459" target="_blank" class="pub-item">
         <h4 class="pub-title">과채류 물동량 예측시스템 및 방법</h4>
         <p class="pub-authors"></p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">lightbulb</span> 출원번호:
+        <p class="pub-venue">출원번호:
           10-2019-0095459 (한국)</p>
       </a>
 
       <a href="https://doi.org/10.8080/1020180151711" target="_blank" class="pub-item">
         <h4 class="pub-title">3차원 신체 모델 측정 장치 및 방법</h4>
         <p class="pub-authors"></p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">lightbulb</span> 출원번호:
+        <p class="pub-venue">출원번호:
           10-2018-0151711 (한국)</p>
       </a>
 
       <a href="https://doi.org/10.8080/1020180151706" target="_blank" class="pub-item">
         <h4 class="pub-title">3차원 신체 모델 생성 장치 및 방법</h4>
         <p class="pub-authors"></p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">lightbulb</span> 출원번호:
+        <p class="pub-venue">출원번호:
           10-2018-0151706 (한국)</p>
       </a>
 
       <a href="https://doi.org/10.8080/1020180106432" target="_blank" class="pub-item">
         <h4 class="pub-title">객체 인식을 통해 위급 상황을 판단하는 장치 및 방법</h4>
         <p class="pub-authors"></p>
-        <p class="pub-venue"><span class="material-symbols-outlined" style="font-size: 1rem;">lightbulb</span> 출원번호:
+        <p class="pub-venue">출원번호:
           10-2020-0028550 (한국)</p>
       </a>
     </section>
@@ -468,124 +514,105 @@
 
   <footer class="footer">
     <div class="container">
-      <div
-        style="display:grid; grid-template-columns: auto 1fr auto; gap:40px; align-items:start; padding: 48px 0 32px;">
-
-        <!-- 왼쪽: 로고 + 연구실 이미지 공간 -->
-        <div style="display:flex; flex-direction:column; align-items:flex-start; gap:16px;">
-          <img src="photo/logo2.png" alt="HCAI Logo" style="height:70px; display:block;">
-          <!-- 연구실 이미지 공간: 아래 src= 부분에 이미지 파일명을 넣어주세요 (예: lab_photo.jpg) -->
-          <div>
-            <!-- <img src="photo/lab_photo.jpg" alt="연구실 사진" style="width:100%; height:100%; object-fit:cover;"> -->
-          </div>
+      <!-- 1행: 연구실 소개 / 연락처 / Join Us -->
+      <div class="footer-main">
+        <div class="footer-cell footer-about">
+          <!-- 강원대 로고 + HCAL 로고: 두 로고의 글자 높이·바닥선을 맞춰 한 장으로 합친 이미지 -->
+          <img src="photo/footer-logos.webp" width="896" height="200" alt="강원대학교 KNU · Human-Centered AI Lab (HCAL)" class="footer-logos">
+          <p class="footer-slogan">Innovative Human-Centered AI<br> for the Future</p>
         </div>
 
-        <!-- 가운데: 연구소 연락처 -->
-        <div style="color:rgba(0, 0, 0, 1); font-size:0.82rem; line-height:1.9;">
-          <p style="margin:0 0 14px; font-weight:700; font-size:0.9rem; color:#000000; letter-spacing:0.5px;">
-            Human-Centered AI Lab</p>
-          <p style="margin:0 0 4px;"><span class="material-symbols-outlined footer-icon">location_on</span> 강원도 삼척시 중앙로
-            346, (교동, 강원대학교) 제5공학관 408호</p>
-          <p style="margin:0 0 14px;"><span class="material-symbols-outlined footer-icon">call</span> Tel : 033-570-6587
-            &nbsp;|&nbsp; <span class="material-symbols-outlined footer-icon">mail</span> tiockdrbs@kangwon.ac.kr</p>
+        <div class="footer-cell footer-contact">
+          <p class="footer-heading">Human-Centered AI Lab</p>
+          <p><span class="material-symbols-outlined footer-icon">location_on</span> Room 408, Engineering Building 5, Kangwon National University, 346 Jungang-ro, Samcheok-si, Gangwon-do, Republic of Korea</p>
+          <p><span class="material-symbols-outlined footer-icon">call</span> Tel : 033-570-6587</p>
         </div>
 
-
-
+        <!-- Join Us: 모집 문구와 문의 이메일(교수님)은 여기서 바꿔 주세요 -->
+        <div class="footer-cell footer-join">
+          <p class="footer-heading">Join Us</p>
+          <p>We’re looking for curious minds to explore healthcare AI, LLMs, and multimodal data with us.</p>
+          <a class="footer-join-mail" href="mailto:tiockdrbs@kangwon.ac.kr"><span class="material-symbols-outlined footer-icon">mail</span> tiockdrbs@kangwon.ac.kr</a>
+        </div>
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,0.1); padding:20px 0; text-align:center;">
-        <p style="margin:0; font-size:0.78rem; color:rgba(0, 0, 0, 0.45); letter-spacing:0.5px;">COPYRIGHT © 2026
-          KANGWON NATIONAL UNIVERSITY. ALL RIGHTS RESERVED.</p>
+
+      <!-- 2행: 저작권 / (빈 칸) / 맨 위로 -->
+      <div class="footer-bar">
+        <p class="footer-copy">COPYRIGHT © 2026 KANGWON NATIONAL UNIVERSITY.<br class="br-narrow"> ALL RIGHTS RESERVED.</p>
+        <a href="#" class="footer-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">↑ TOP</a>
       </div>
     </div>
   </footer>
 
   <script>
-    function showPubTab(tabId, element) {
-      document.querySelectorAll('.pub-section').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.pub-tab-link').forEach(el => {
-        el.style.color = 'var(--text-muted)';
-        el.style.fontWeight = '600';
+    // 탭 전환: 주소의 #scie / #kci / #patents 로 바로 열 수 있음
+    function showPubTab(tabId, updateHash) {
+      if (!document.getElementById(tabId)) tabId = 'scie';
+      document.querySelectorAll('.pub-section').forEach(el => { el.style.display = el.id === tabId ? 'block' : 'none'; });
+      document.querySelectorAll('.pub-tabs button').forEach(btn => {
+        btn.setAttribute('aria-selected', btn.dataset.tab === tabId ? 'true' : 'false');
       });
-
-      document.getElementById(tabId).style.display = 'block';
-      if (element) {
-        element.style.color = 'var(--primary-navy)';
-        element.style.fontWeight = '700';
-      }
+      if (updateHash) history.replaceState(null, '', '#' + tabId);
     }
 
-    // Automatically group publications by year
     document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.pub-section');
-      sections.forEach(section => {
+      const PI_NAMES = ['Kim, C.', '김창균'];   // 저자 목록에서 굵게 표시할 이름 (지도교수)
+
+      document.querySelectorAll('.pub-section').forEach(section => {
         const items = Array.from(section.querySelectorAll('.pub-item'));
+        const tabCount = document.querySelector(`.pub-tabs button[data-tab="${section.id}"] .pub-count`);
+        if (tabCount) tabCount.textContent = items.length;
         if (items.length === 0) return;
 
-        const groups = {};
-        const noYearItems = [];
-
         items.forEach(item => {
-          const yearSpan = item.querySelector('.pub-year');
-          if (yearSpan && yearSpan.textContent.trim()) {
-            const year = yearSpan.textContent.trim();
-            if (!groups[year]) groups[year] = [];
-            groups[year].push(item);
-          } else {
-            noYearItems.push(item);
+          // 지도교수 이름 굵게
+          const authors = item.querySelector('.pub-authors');
+          const pi = authors && PI_NAMES.find(name => authors.textContent.includes(name));
+          if (pi) authors.innerHTML = authors.innerHTML.replace(pi, `<strong>${pi}</strong>`);
+          // 특허: 출원번호 뒤 (한국)/(해외) 를 앞쪽 표시로
+          const venue = item.querySelector('.pub-venue');
+          if (venue && section.id === 'patents') {
+            const m = venue.textContent.match(/\((한국|해외)\)\s*$/);
+            if (m) {
+              venue.innerHTML = `<span class="pub-badge">${m[1] === '한국' ? '국내' : '해외'}</span>` +
+                venue.innerHTML.replace(/\s*\((한국|해외)\)\s*$/, '');
+            }
           }
         });
 
-        const years = Object.keys(groups).sort((a, b) => b - a); // Descending sort
-        if (years.length > 0) {
-          const title = section.querySelector('h3');
-          section.innerHTML = '';
-          if (title) section.appendChild(title);
+        // 연도별로 묶기 (연도가 없는 항목은 마지막 묶음으로)
+        const groups = new Map();
+        items.forEach(item => {
+          const year = item.querySelector('.pub-year')?.textContent.trim() || '';
+          if (!groups.has(year)) groups.set(year, []);
+          groups.get(year).push(item);
+        });
+        const keys = [...groups.keys()].sort((a, b) => (b || '0') - (a || '0'));
 
-          years.forEach(year => {
-            const yearHeader = document.createElement('h4');
-            yearHeader.style.cssText = 'font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin-top: 40px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid var(--border-color); display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; transition: opacity 0.2s;';
-            yearHeader.onmouseover = () => yearHeader.style.opacity = '0.7';
-            yearHeader.onmouseout = () => yearHeader.style.opacity = '1';
-            yearHeader.innerHTML = `<span class="material-symbols-outlined toggle-icon" style="transition: transform 0.2s;">expand_more</span> <span class="material-symbols-outlined" style="color: var(--accent-blue);">calendar_today</span> ${year}`;
-            section.appendChild(yearHeader);
+        const title = section.querySelector('h3');
+        section.innerHTML = '';
+        if (title) section.appendChild(title);
 
-            const contentWrapper = document.createElement('div');
-            groups[year].forEach(item => contentWrapper.appendChild(item));
-            section.appendChild(contentWrapper);
-
-            let isOpen = true;
-            yearHeader.addEventListener('click', () => {
-              isOpen = !isOpen;
-              contentWrapper.style.display = isOpen ? 'block' : 'none';
-              const icon = yearHeader.querySelector('.toggle-icon');
-              icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(-90deg)';
-            });
-          });
-
-          if (noYearItems.length > 0) {
-            const otherHeader = document.createElement('h4');
-            otherHeader.style.cssText = 'font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin-top: 40px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid var(--border-color); display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; transition: opacity 0.2s;';
-            otherHeader.onmouseover = () => otherHeader.style.opacity = '0.7';
-            otherHeader.onmouseout = () => otherHeader.style.opacity = '1';
-            otherHeader.innerHTML = `<span class="material-symbols-outlined toggle-icon" style="transition: transform 0.2s;">expand_more</span> <span class="material-symbols-outlined" style="color: var(--accent-blue);">archive</span> Other / Patents`;
-            section.appendChild(otherHeader);
-
-            const otherWrapper = document.createElement('div');
-            noYearItems.forEach(item => otherWrapper.appendChild(item));
-            section.appendChild(otherWrapper);
-
-            let isOtherOpen = true;
-            otherHeader.addEventListener('click', () => {
-              isOtherOpen = !isOtherOpen;
-              otherWrapper.style.display = isOtherOpen ? 'block' : 'none';
-              const icon = otherHeader.querySelector('.toggle-icon');
-              icon.style.transform = isOtherOpen ? 'rotate(0deg)' : 'rotate(-90deg)';
-            });
-          }
-        }
+        keys.forEach(year => {
+          const group = document.createElement('div');
+          group.className = 'pub-group';
+          const label = section.id === 'patents' && !year ? '특허' : (year || '기타');
+          group.innerHTML = `<div class="pub-group-label">${label}</div>`;
+          const list = document.createElement('div');
+          list.className = 'pub-group-items';
+          groups.get(year).forEach(item => list.appendChild(item));
+          group.appendChild(list);
+          section.appendChild(group);
+        });
       });
+
+      document.querySelectorAll('.pub-tabs button').forEach(btn => {
+        btn.addEventListener('click', () => showPubTab(btn.dataset.tab, true));
+      });
+      showPubTab(location.hash.slice(1) || 'scie', false);
     });
+
+    window.addEventListener('hashchange', () => showPubTab(location.hash.slice(1), false));
   </script>
 </body>
 
