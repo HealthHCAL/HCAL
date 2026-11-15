@@ -130,7 +130,11 @@
           pager.innerHTML = pagerLink(articles[index + 1], '← 이전 소식', 'is-prev') +
             pagerLink(articles[index - 1], '다음 소식 →', 'is-next');
         })
-        .catch(() => showError('소식을 불러오지 못했습니다. 웹 서버를 통해 열었는지 확인해 주세요.'));
+        .catch(() => {
+          // 파일을 직접 열면(file://) 브라우저가 fetch 를 막으므로, 뉴스 목록의 해당 카드로 대신 이동
+          if (wantedId) location.replace(`news.html#${encodeURIComponent(wantedId)}`);
+          else showError('소식을 불러오지 못했습니다.');
+        });
     })();
   </script>
 

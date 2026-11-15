@@ -65,7 +65,7 @@
     <nav class="rs-toc" aria-label="연구 분야 바로가기">
       <a href="#healthcare"><span>01</span>멀티모달 디지털 헬스케어</a>
       <a href="#gait"><span>02</span>적응형 보행 헬스케어</a>
-      <a href="#llm"><span>03</span>LLM 기반 지능형 민원 처리</a>
+      <a href="#llm"><span>03</span>음성·채팅 기반 인간 중심 AI</a>
       <a href="#manufacturing"><span>04</span>자율제조·공정 최적화</a>
       <a href="#driver"><span>05</span>운전자 상태 인식</a>
     </nav>
@@ -106,6 +106,7 @@
         <h4>관련 성과</h4>
         <ul>
           <li><span class="rs-year">2026</span><a href="https://doi.org/10.3390/app16021096" target="_blank" rel="noopener">Spinal Line Detection for Posture Evaluation Through Training-Free 3D Human Body Reconstruction with 2D Depth Images</a><em>Applied Sciences</em></li>
+          <li><span class="rs-year">2026</span><a href="https://doi.org/10.9728/dcs.2026.27.9.2547" target="_blank" rel="noopener">노인 체형 분류를 위한 신체 비율 지표의 통계적 특성과 원형 체형 도출</a><em>디지털콘텐츠학회논문지</em></li>
           <li><span class="rs-year">2026</span><a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003335434" target="_blank" rel="noopener">노인 신체계측 변수 기반 근감소증 탐지를 위한 유의 변수 탐색: 머신러닝 접근</a><em>한국스포츠사이언스지</em></li>
           <li><span class="rs-year">2025</span><a href="https://ijph.tums.ac.ir/index.php/ijph/article/view/38957" target="_blank" rel="noopener">Development of a Deep Learning Model for Predicting Obesity Using Health Behavior Data of Elementary School Students</a><em>Iranian Journal of Public Health</em></li>
           <li><span class="rs-year">2024</span><a href="https://www.mdpi.com/1424-8220/24/1/270" target="_blank" rel="noopener">Development of a Non-Contact Sensor System for Converting 2D Images into 3D Body Data</a><em>Sensors</em></li>
@@ -154,27 +155,29 @@
       <header class="rs-head">
         <span class="rs-num">03</span>
         <div>
-          <h3>LLM 기반 지능형 민원 처리</h3>
-          <p class="rs-en">LLM-based Intelligent Complaint Handling</p>
+          <h3>음성·채팅 기반 인간 중심 AI 솔루션</h3>
+          <p class="rs-en">Human-Centered Voice &amp; Chat AI Solutions</p>
         </div>
       </header>
       <div class="rs-body">
-        <p class="rs-lead">전화나 글로 들어오는 민원처럼 형식이 정해지지 않은 요청을 다룹니다. 음성을 받아 적고(STT), LLM으로 요약·분류한 뒤,
-          비슷한 과거 사례를 찾아 담당 부서와 처리 순서를 추천합니다. 상수도 민원 처리에 적용한 연구를 워터코리아에서 발표했습니다.</p>
+        <p class="rs-lead">복잡한 AI 기술을 누구나 편하게 쓸 수 있도록, 말하거나 채팅으로 요청하면 필요한 지식을 찾아 이해하기 쉬운 답으로 돌려주는 솔루션을 연구합니다.
+          STT, Data Chunking, Embedding, Vector DB, RAG, LLM을 하나로 이어 입력 부담과 정보 탐색 시간, 반복 작업을 줄이는 것이 목표입니다.</p>
         <dl class="rs-points">
-          <dt>요청 이해·분류</dt>
-          <dd>음성·텍스트 요청을 전사하고 핵심만 요약해 의미로 분류합니다. 표현이 모호하거나 같은 말을 반복해도 요지를 잡아냅니다.</dd>
-          <dt>사례 검색·처리 추천</dt>
-          <dd>Embedding과 Vector DB로 비슷한 사례를 찾고, 담당 부서·우선순위·알림·후속 조치까지 제안합니다.</dd>
+          <dt>편리한 입력</dt>
+          <dd>STT로 말을 글로 옮기고 채팅 입력과 대화 맥락을 함께 다룹니다. 발화 오류를 바로잡고 입력 단계를 최소화합니다.</dd>
+          <dt>지식 검색·근거 연결</dt>
+          <dd>문서를 의미 단위로 나눠(Data Chunking) Embedding·Vector DB에 저장하고, 질문과 관련된 근거를 찾아 RAG로 응답에 활용합니다. 분할 방식과 검색 정확도도 함께 연구합니다.</dd>
+          <dt>맞춤형 응답</dt>
+          <dd>작업 성격, 응답 속도, 비용, 보안에 맞춰 여러 LLM 중 알맞은 모델을 고르고, 출처를 밝힌 요약과 쉬운 설명, 후속 질문으로 답합니다.</dd>
         </dl>
       </div>
       <ul class="rs-tags">
-        <li>STT</li><li>Embedding</li><li>Vector DB</li><li>LLM</li>
+        <li>STT</li><li>Data Chunking</li><li>Embedding</li><li>Vector DB</li><li>RAG</li><li>LLM</li>
       </ul>
       <figure class="rs-fig">
         <a href="photo/R3.webp" target="_blank" rel="noopener" title="원본 크기로 보기">
-          <img src="photo/R3.webp" width="1376" height="759" loading="lazy" alt="민원 접수, 관리, 처리 단계로 구성된 AI 기반 상수도 통합 민원 관리 플랫폼 화면"></a>
-        <figcaption>AI 기반 상수도 통합 민원 관리 플랫폼: 접수 → 관리 → 처리</figcaption>
+          <img src="photo/R3.webp" width="1600" height="885" loading="lazy" alt="음성·채팅 입력, Data Chunking·Embedding·Vector DB·RAG 기반 지식 검색, 여러 LLM을 활용한 맞춤형 응답과 사용자 피드백 루프로 구성된 인간 중심 AI 솔루션 연구 구성도"></a>
+        <figcaption>편리한 입력(음성·채팅) → 맥락·지식 연결(Chunking·Embedding·Vector DB·RAG) → 이해하기 쉬운 응답(LLM)</figcaption>
       </figure>
       <div class="rs-related">
         <h4>관련 성과</h4>
@@ -207,8 +210,8 @@
       </ul>
       <figure class="rs-fig">
         <a href="photo/R4.webp" target="_blank" rel="noopener" title="원본 크기로 보기">
-          <img src="photo/R4.webp" width="1600" height="771" loading="lazy" alt="시멘트 공정 데이터 수집 환경 구축부터 AI 자율제조 연속운행까지의 연구 단계도"></a>
-        <figcaption>데이터 수집 환경 구축 → 공정 변수 모델링 → 가상 공정 시뮬레이션 → 자율제조 연속운행</figcaption>
+          <img src="photo/R4.webp" width="1600" height="888" loading="lazy" alt="공정 데이터 수집·구축, 이상 탐지·원인 진단·품질 예측·디지털 트윈 최적화로 이루어진 공정 AI 연구, 작업자 의사결정 지원, 현장 검증과 MLOps 기반 지속 개선으로 이어지는 연구 구성도"></a>
+        <figcaption>공정 데이터 수집·구축 → 공정 AI 연구(이상 탐지·원인 진단·예측·디지털 트윈) → 작업자 의사결정 지원 → 현장 검증·지속 학습</figcaption>
       </figure>
       <div class="rs-related">
         <h4>관련 성과</h4>
@@ -243,8 +246,8 @@
       </ul>
       <figure class="rs-fig">
         <a href="photo/R5.webp" target="_blank" rel="noopener" title="원본 크기로 보기">
-          <img src="photo/R5.webp" width="1264" height="960" loading="lazy" alt="운전자 얼굴 영상에서 생리 신호와 행동 신호를 추출해 상태를 예측하는 모델 구성도"></a>
-        <figcaption>얼굴 영상 기반 생리·행동 신호 추출과 개인화 상태 예측 모델</figcaption>
+          <img src="photo/R5.webp" width="1600" height="901" loading="lazy" alt="카메라와 비접촉 레이다로 모은 멀티모달 데이터를 개인화 시계열 AI로 분석해 주의 분산·졸음 등 운전자 상태를 추정하고, 위험 판단과 DCAS 연계, 시뮬레이터·실차 검증으로 이어지는 연구 구성도"></a>
+        <figcaption>멀티모달 데이터 구축 → 개인화 시계열 AI → 운전자 상태 추정 → 위험 판단·DCAS 연계 → 시뮬레이터·실차 검증</figcaption>
       </figure>
       <div class="rs-related">
         <h4>관련 성과</h4>

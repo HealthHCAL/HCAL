@@ -206,6 +206,13 @@
       }
 
       .news-more:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 4px; }
+
+      /* 다른 페이지에서 news.html#카드id 로 들어왔을 때 해당 카드를 잠깐 강조 */
+      .news-card.is-target { animation: news-target 2.4s ease-out; border-radius: 12px; }
+      @keyframes news-target {
+        0%, 40% { box-shadow: 0 0 0 4px var(--accent-blue); }
+        100% { box-shadow: 0 0 0 4px transparent; }
+      }
     </style>
     <div id="paginate-container">
 
@@ -382,8 +389,16 @@
         controls.appendChild(nextBtn);
       }
 
-      showPage(1);
-
+      // 주소에 #news-2026-03 처럼 카드 id 가 있으면 그 카드가 있는 페이지를 열고 카드로 이동
+      const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      const targetIndex = target ? items.indexOf(target) : -1;
+      if (targetIndex === -1) {
+        showPage(1);
+      } else {
+        showPage(Math.floor(targetIndex / itemsPerPage) + 1);
+        target.scrollIntoView({ block: 'center' });
+        target.classList.add('is-target');
+      }
     }
     document.addEventListener('DOMContentLoaded', () => {
       const container = document.getElementById('paginate-container');
