@@ -341,7 +341,7 @@
           <img src="photo/area-healthcare.webp" width="960" height="540" alt="센서와 카메라로 걸음걸이를 측정하는 장면" class="area-cat-fig" loading="lazy">
           <h4>멀티모달 AI 기반 디지털 헬스케어</h4>
           <p class="area-cat-en">Multimodal AI-based Digital Healthcare</p>
-          <p class="area-cat-desc">사람의 몸과 움직임을 데이터로 측정하고, 건강 이상을 일찍 찾아내는 AI를 연구합니다.</p>
+          <p class="area-cat-desc">사람의 몸과 움직임을 데이터로 측정하고, 건강 이상을 조기에 감지하는 AI를 연구합니다.</p>
         </div>
         <div class="area-cat">
           <img src="photo/area-llm.webp" width="960" height="540" alt="전화와 컴퓨터로 민원을 접수·처리하는 사무실 책상" class="area-cat-fig" loading="lazy">
@@ -356,6 +356,240 @@
           <p class="area-cat-desc">제조 공정과 운전 현장의 데이터로 품질과 사고 위험을 미리 예측합니다.</p>
         </div>
       </div>
+    </section>
+
+    <section class="section container">
+      <h3 class="area-title">RESEARCH THRUSTS</h3>
+
+      <style>
+        /* 지금 진행 중인 연구 목록: Research 페이지의 01~05 분야와 같은 순서·이름 (분야를 바꾸면 여기도 같이 고쳐 주세요) */
+        .ri-list {
+          list-style: none;
+          margin: 32px 0 0;
+          padding: 0;
+          border-top: 2px solid var(--primary-navy);
+        }
+
+        .ri-item a {
+          display: grid;
+          grid-template-columns: 56px minmax(0, 5fr) minmax(0, 7fr) 24px;
+          gap: 8px 32px;
+          align-items: baseline;
+          padding: 24px 0;
+          border-bottom: 1px solid var(--border-color);
+          color: inherit;
+          text-decoration: none;
+          word-break: keep-all;
+        }
+
+        .ri-num {
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: var(--text-muted);
+          font-variant-numeric: tabular-nums;
+        }
+
+        .ri-name {
+          font-size: 1.15rem;
+          font-weight: 800;
+          color: var(--primary-navy);
+          line-height: 1.4;
+        }
+
+        .ri-name small {
+          display: block;
+          margin-top: 4px;
+          font-size: 0.85rem;
+          font-weight: 500;
+          color: var(--text-muted);
+        }
+
+        .ri-desc {
+          font-size: 0.95rem;
+          line-height: 1.7;
+          color: var(--text-dark);
+          text-wrap: pretty;
+        }
+
+        .ri-arrow {
+          color: var(--text-muted);
+          text-align: right;
+          transition: transform 0.2s, color 0.2s;
+        }
+
+        .ri-item a:hover .ri-name { color: var(--accent-blue); }
+        .ri-item a:hover .ri-arrow { color: var(--accent-blue); transform: translateX(4px); }
+
+        @media (max-width: 900px) {
+          .ri-item a { grid-template-columns: 40px minmax(0, 1fr) 24px; }
+          .ri-desc { grid-column: 2 / 3; }
+          .ri-arrow { grid-column: 3; grid-row: 1; }
+        }
+      </style>
+
+      <ol class="ri-list">
+        <li class="ri-item"><a href="research.html#healthcare">
+          <span class="ri-num">01</span>
+          <span class="ri-name">멀티모달 디지털 헬스케어<small>Multimodal Digital Healthcare</small></span>
+          <span class="ri-desc">2D 이미지에서 3D 신체 모델을 복원해 체형과 자세를 수치로 측정합니다.</span>
+          <span class="ri-arrow">→</span>
+        </a></li>
+        <li class="ri-item"><a href="research.html#gait">
+          <span class="ri-num">02</span>
+          <span class="ri-name">적응형 보행 헬스케어<small>Adaptive Gait Healthcare</small></span>
+          <span class="ri-desc">mmWave 레이다로 실내 보행을 측정해 고령자의 보행 이상을 조기에 감지합니다.</span>
+          <span class="ri-arrow">→</span>
+        </a></li>
+        <li class="ri-item"><a href="research.html#llm">
+          <span class="ri-num">03</span>
+          <span class="ri-name">음성·채팅 기반 인간 중심 AI<small>Human-Centered Voice &amp; Chat AI Solutions</small></span>
+          <span class="ri-desc">말이나 채팅으로 요청하면 근거 지식을 찾아 이해하기 쉬운 답으로 돌려줍니다.</span>
+          <span class="ri-arrow">→</span>
+        </a></li>
+        <li class="ri-item"><a href="research.html#manufacturing">
+          <span class="ri-num">04</span>
+          <span class="ri-name">자율제조·공정 최적화<small>AI for Autonomous Manufacturing</small></span>
+          <span class="ri-desc">시멘트 공정의 원료·운전·에너지 데이터를 학습해 품질을 미리 예측합니다.</span>
+          <span class="ri-arrow">→</span>
+        </a></li>
+        <li class="ri-item"><a href="research.html#driver">
+          <span class="ri-num">05</span>
+          <span class="ri-name">운전자 상태 인식<small>Driver State Recognition</small></span>
+          <span class="ri-desc">카메라 영상으로 운전자의 생체 신호와 졸음 징후를 읽고, 개인 맞춤형 모델로 위험을 판단합니다.</span>
+          <span class="ri-arrow">→</span>
+        </a></li>
+      </ol>
+    </section>
+
+    <section class="section container">
+      <h3 class="area-title">GALLERY</h3>
+
+      <style>
+        /* 갤러리: 연구실·행사 사진 8장. 사진을 바꾸려면 아래 .gal-item 의 href·src·글만 바꿔 주세요.
+           칸 모양은 gal-big(큰 칸) / gal-tall(세로 사진) / gal-wide(가로 사진) 클래스로 정함 */
+        .gal-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          grid-auto-rows: 210px;
+          gap: 12px;
+          margin-top: 32px;
+        }
+
+        .gal-item {
+          position: relative;
+          display: block;
+          overflow: hidden;
+          border-radius: 8px;
+          background: var(--bg-gray);
+          color: #fff;
+          text-decoration: none;
+        }
+
+        .gal-item figure { margin: 0; height: 100%; }
+
+        .gal-item img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .gal-item figcaption {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 36px 16px 14px;
+          background: linear-gradient(transparent, rgba(10, 29, 55, 0.78));
+          font-size: 0.9rem;
+          font-weight: 600;
+          line-height: 1.45;
+          word-break: keep-all;
+        }
+
+        .gal-item figcaption time {
+          display: block;
+          margin-bottom: 2px;
+          font-size: 0.75rem;
+          font-weight: 500;
+          opacity: 0.8;
+        }
+
+        .gal-item:hover img { transform: scale(1.04); }
+
+        /* 넓은 화면(4열): 1·2행 큰 칸(2x2) + 세로 칸 2개 / 3행 가로 칸 + 작은 칸 2개 / 4행 가로 칸 2개
+           클래스 없는 .gal-item 은 작은 칸(1x1) */
+        .gal-big { grid-column: span 2; grid-row: span 2; }
+        .gal-tall { grid-row: span 2; }
+        .gal-wide { grid-column: span 2; }
+
+        .gal-more {
+          display: inline-block;
+          margin-top: 20px;
+          font-weight: 600;
+          color: var(--accent-blue);
+          text-decoration: none;
+        }
+
+        .gal-more:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+        @media (max-width: 900px) {
+          .gal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 180px; }
+          .gal-big, .gal-wide { grid-column: span 2; }
+        }
+      </style>
+
+      <div class="gal-grid">
+        <a class="gal-item gal-big" href="lab-life.html">
+          <figure>
+            <img src="photo/lab-group.webp" width="1200" height="900" loading="lazy" alt="정자 앞에 모여 앉은 HCAL 연구실 구성원 단체 사진">
+          </figure>
+        </a>
+        <a class="gal-item gal-tall" href="news-detail.html?id=news-2025-11">
+          <figure>
+            <img src="photo/N4.webp" width="1200" height="1600" loading="lazy" alt="도핑방지 논문 공모전 박사부 최우수상 수상 모습" style="object-position: center 30%;">
+            <figcaption><time datetime="2025-11">2025.11</time>도핑방지 논문 공모전 최우수상</figcaption>
+          </figure>
+        </a>
+        <div class="gal-item gal-tall">
+          <figure>
+            <img src="photo/dinner-2026-11.webp" width="900" height="1200" loading="lazy" alt="고깃집에서 함께 식사하며 찍은 연구실 구성원 셀카 사진">
+            <figcaption><time datetime="2026-11">2026.11</time>연구실 회식</figcaption>
+          </figure>
+        </div>
+        <a class="gal-item gal-wide" href="news-detail.html?id=news-2026-03">
+          <figure>
+            <img src="photo/N1.webp" width="1600" height="1200" loading="lazy" alt="워터코리아 전시장 부스 모습">
+            <figcaption><time datetime="2026-03">2026.03</time>워터코리아 컨퍼런스</figcaption>
+          </figure>
+        </a>
+        <div class="gal-item">
+          <figure>
+            <img src="photo/dinner-2026-11b.webp" width="896" height="1027" loading="lazy" alt="식당에서 함께 저녁을 먹으며 찍은 연구실 구성원 사진">
+            <figcaption><time datetime="2026-11">2026.11</time>연구실 회식</figcaption>
+          </figure>
+        </div>
+        <a class="gal-item" href="news-detail.html?id=news-2026-08">
+          <figure>
+            <img src="photo/BRE.webp" width="1600" height="1200" loading="lazy" alt="IJCAI-ECAI 2026 행사장 안내판">
+            <figcaption><time datetime="2026-08">2026.08</time>IJCAI-ECAI 2026, 브레멘</figcaption>
+          </figure>
+        </a>
+        <a class="gal-item gal-wide" href="news-detail.html?id=news-2026-07">
+          <figure>
+            <img src="photo/N6.webp" width="1600" height="1080" loading="lazy" alt="반도체 첨단 세라믹 소재·부품·공정 혁신 기술개발 사업 킥오프 워크숍 단체 사진">
+            <figcaption><time datetime="2026-07">2026.07</time>반도체 세라믹 과제 킥오프 워크숍</figcaption>
+          </figure>
+        </a>
+        <a class="gal-item gal-wide" href="news-detail.html?id=news-2026-09">
+          <figure>
+            <img src="photo/N7.webp" width="1600" height="902" loading="lazy" alt="지역 어르신들과 연구실 학생들이 함께 찍은 단체 사진">
+            <figcaption><time datetime="2026-09">2026.09</time>고령친화 AI 현장 실증</figcaption>
+          </figure>
+        </a>
+      </div>
+      <a class="gal-more" href="lab-life.html">Lab Life 더 보기 →</a>
     </section>
 
     <section class="section section-dark">
@@ -692,110 +926,6 @@
         </div>
       </div>
     </section>
-
-    <section class="section container">
-      <h3 class="area-title">RESEARCH THRUSTS</h3>
-
-      <style>
-        /* 지금 진행 중인 연구 목록: Research 페이지의 01~05 분야와 같은 순서·이름 (분야를 바꾸면 여기도 같이 고쳐 주세요) */
-        .ri-list {
-          list-style: none;
-          margin: 32px 0 0;
-          padding: 0;
-          border-top: 2px solid var(--primary-navy);
-        }
-
-        .ri-item a {
-          display: grid;
-          grid-template-columns: 56px minmax(0, 5fr) minmax(0, 7fr) 24px;
-          gap: 8px 32px;
-          align-items: baseline;
-          padding: 24px 0;
-          border-bottom: 1px solid var(--border-color);
-          color: inherit;
-          text-decoration: none;
-          word-break: keep-all;
-        }
-
-        .ri-num {
-          font-size: 0.95rem;
-          font-weight: 700;
-          color: var(--text-muted);
-          font-variant-numeric: tabular-nums;
-        }
-
-        .ri-name {
-          font-size: 1.15rem;
-          font-weight: 800;
-          color: var(--primary-navy);
-          line-height: 1.4;
-        }
-
-        .ri-name small {
-          display: block;
-          margin-top: 4px;
-          font-size: 0.85rem;
-          font-weight: 500;
-          color: var(--text-muted);
-        }
-
-        .ri-desc {
-          font-size: 0.95rem;
-          line-height: 1.7;
-          color: var(--text-dark);
-          text-wrap: pretty;
-        }
-
-        .ri-arrow {
-          color: var(--text-muted);
-          text-align: right;
-          transition: transform 0.2s, color 0.2s;
-        }
-
-        .ri-item a:hover .ri-name { color: var(--accent-blue); }
-        .ri-item a:hover .ri-arrow { color: var(--accent-blue); transform: translateX(4px); }
-
-        @media (max-width: 900px) {
-          .ri-item a { grid-template-columns: 40px minmax(0, 1fr) 24px; }
-          .ri-desc { grid-column: 2 / 3; }
-          .ri-arrow { grid-column: 3; grid-row: 1; }
-        }
-      </style>
-
-      <ol class="ri-list">
-        <li class="ri-item"><a href="research.html#healthcare">
-          <span class="ri-num">01</span>
-          <span class="ri-name">멀티모달 디지털 헬스케어<small>Multimodal Digital Healthcare</small></span>
-          <span class="ri-desc">2D 이미지에서 3D 신체 모델을 복원해 체형과 자세를 수치로 측정합니다.</span>
-          <span class="ri-arrow">→</span>
-        </a></li>
-        <li class="ri-item"><a href="research.html#gait">
-          <span class="ri-num">02</span>
-          <span class="ri-name">적응형 보행 헬스케어<small>Adaptive Gait Healthcare</small></span>
-          <span class="ri-desc">mmWave 레이다로 실내 보행을 측정해 고령자의 보행 이상을 일찍 알아챕니다.</span>
-          <span class="ri-arrow">→</span>
-        </a></li>
-        <li class="ri-item"><a href="research.html#llm">
-          <span class="ri-num">03</span>
-          <span class="ri-name">음성·채팅 기반 인간 중심 AI<small>Human-Centered Voice &amp; Chat AI Solutions</small></span>
-          <span class="ri-desc">말이나 채팅으로 요청하면 근거 지식을 찾아 이해하기 쉬운 답으로 돌려줍니다.</span>
-          <span class="ri-arrow">→</span>
-        </a></li>
-        <li class="ri-item"><a href="research.html#manufacturing">
-          <span class="ri-num">04</span>
-          <span class="ri-name">자율제조·공정 최적화<small>AI for Autonomous Manufacturing</small></span>
-          <span class="ri-desc">시멘트 공정의 원료·운전·에너지 데이터를 학습해 품질을 미리 예측합니다.</span>
-          <span class="ri-arrow">→</span>
-        </a></li>
-        <li class="ri-item"><a href="research.html#driver">
-          <span class="ri-num">05</span>
-          <span class="ri-name">운전자 상태 인식<small>Driver State Recognition</small></span>
-          <span class="ri-desc">카메라 영상으로 운전자의 생체 신호와 졸음 징후를 읽고, 개인 맞춤형 모델로 위험을 판단합니다.</span>
-          <span class="ri-arrow">→</span>
-        </a></li>
-      </ol>
-    </section>
-
   </main>
 
   <footer class="footer">
